@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nonghang/widget/mine/MineHeader.dart';
+import 'package:nonghang/widget/mine/MineMyLife.dart';
+import 'package:nonghang/widget/mine/MineMyMoney.dart';
+import 'package:nonghang/widget/mine/MineSafe.dart';
 
 class MinePage extends StatefulWidget {
   MinePage({Key key}) : super(key: key);
@@ -26,8 +29,13 @@ class _MinePageState extends State<MinePage>
         appBar: AppBar(
           title: Text("我的"),
         ),
-        body: Column(children: [
-          MineHeader()
+        body: ListView(children: [
+          MineHeader(),
+          MineMyMoney(),
+          MineMyLife(),
+          MineSafe(),
+          MineSafe(),
+          SizedBox(height:20),
         ]));
   }
 }
