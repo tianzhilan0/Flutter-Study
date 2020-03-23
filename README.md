@@ -1,4 +1,4 @@
 # Flutter-Study
 
 
-![avatar](/images/home.png)
+![avatar](images/home.jpeg)
