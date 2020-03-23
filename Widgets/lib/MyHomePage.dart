@@ -8,7 +8,7 @@ class MyHomePage extends StatelessWidget {
     {"title": "Image", "path": "/image"},
     {"title": "CheckBox", "path": "/checkbox"},
     {"title": "Switch", "path": "/switch"},
-    
+
     //容器类 Widget
     {"title": "Padding", "path": "/padding"},
     {"title": "ConstrainedBox", "path": "/constrainedbox"},
@@ -16,7 +16,7 @@ class MyHomePage extends StatelessWidget {
     {"title": "Transform", "path": "/transform"},
     {"title": "RotatedBox", "path": "/rotatedbox"},
     {"title": "Container", "path": "/container"},
-    
+
     //布局类 Widget
     {"title": "Row", "path": "/row"},
     {"title": "Column", "path": "/column"},
@@ -32,11 +32,28 @@ class MyHomePage extends StatelessWidget {
     {"title": "Offstage", "path": "/offstage"},
     {"title": "OverflowBox", "path": "/overflowBox"},
     {"title": "SizedOverflowBox", "path": "/sizedOverflowBox"},
-    
   ];
 
   @override
   Widget build(BuildContext context) {
+    return DefaultTabController(
+        length: 4,
+        child: Scaffold(
+            appBar: AppBar(
+                title: Text('TabBar Page'),
+                bottom: TabBar(tabs: <Widget>[
+                  Tab(text: '今日爆款'),
+                  Tab(text: '土货生鲜'),
+                  Tab(text: '会员中心'),
+                  Tab(text: '分类')
+                ])),
+            body: TabBarView(children: <Widget>[
+              Center(child: Text('今日爆款')),
+              Center(child: Text('土货生鲜')),
+              Center(child: Text('会员中心')),
+              Center(child: Text('分类'))
+            ])));
+
     return Container(
         child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

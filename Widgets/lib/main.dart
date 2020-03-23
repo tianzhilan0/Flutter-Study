@@ -38,7 +38,15 @@ import 'package:demo2/Widgets/LCSizedOverflowBox.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  MyApp({Key key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -47,10 +55,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(title: Text("Flutter-Study"),),
-        body: MyHomePage(),
-      ),
+      home: MyHomePage(),
       routes: <String, WidgetBuilder> {
         
         //基础类 Widget
