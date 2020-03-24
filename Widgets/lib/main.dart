@@ -1,3 +1,4 @@
+import 'package:demo2/Extends/LCLogin.dart';
 import 'package:demo2/Extends/LCSwiper.dart';
 import 'package:demo2/Tools/LCHttpRequest.dart';
 import 'package:demo2/Tools/LCJson.dart';
@@ -100,8 +101,13 @@ class _MyAppState extends State<MyApp> {
 
         //extends
         '/swiper': (_) => LCSwiper(),
-        // '/json': (_) => LCJson(),
-        // '/toast': (_) => LCToast(),
+        '/json': (_) => LCJson(),
+        '/toast': (_) => LCToast(),
+        '/shared_preferences': (_) => LCSharedPreferences(),
+        '/login': (_) => LCLogin(),
+        // '/shared_preferences': (_) => LCSharedPreferences(),
+        // '/shared_preferences': (_) => LCSharedPreferences(),
+        // '/shared_preferences': (_) => LCSharedPreferences(),
         // '/shared_preferences': (_) => LCSharedPreferences(),
 
       },
