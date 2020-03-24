@@ -57,19 +57,41 @@ class _MyHomePageState extends State<MyHomePage>
   ];
 
   List<Map> tools = [
-    {"avatar":"http","title": "网络请求", "detail": "dio和http", "path": "/http"},
-    {"avatar":"json","title": "JSON解析", "detail": "", "path": "/json"},
-    {"avatar":"http","title": "网络请求", "detail": "dqio和http", "path": "/text"},
-    {"avatar":"http","title": "网络请求", "detail": "dio和http", "path": "/text"},
+    {
+      "avatar": "http",
+      "title": "网络请求",
+      "detail": "原生http、第三方dio、第三方http",
+      "path": "/http"
+    },
+    {
+      "avatar": "json",
+      "title": "JSON解析",
+      "detail": "Map解析和对象解析",
+      "path": "/json"
+    },
+    {
+      "avatar": "T",
+      "title": "Toast",
+      "detail": "第三方fluttertoast",
+      "path": "/toast"
+    },
+    {
+      "avatar": "S",
+      "title": "本地化存储",
+      "detail": "第三方shared_preferences",
+      "path": "/shared_preferences"
+    },
+  ];
+
+  List<Map> extend = [
+    {"title": "轮播图", "path": "/swiper"},
+    {"title": "网络请求", "path": "/http"},
+    {"title": "网络请求", "path": "/http"},
+    {"title": "网络请求", "path": "/http"},
   ];
 
   @override
   Widget build(BuildContext context) {
-
-
-
-
-    
     return Scaffold(
         appBar: AppBar(
           title: _tabBarTop(),
@@ -83,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage>
         body: _tabBarView());
   }
 
-    Widget showWidgets(List<Map> items) {
+  Widget showWidgets(List<Map> items) {
     return Container(
         child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -117,12 +139,12 @@ class _MyHomePageState extends State<MyHomePage>
         itemBuilder: (context, index) {
           return ListTile(
             leading: CircleAvatar(
-                        child: Text(items[index]["avatar"]),
-                      ),
+              child: Text(items[index]["avatar"]),
+            ),
             title: Text(items[index]["title"]),
             subtitle: Text(items[index]["detail"]),
             trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: (){
+            onTap: () {
               Navigator.pushNamed(context, items[index]["path"]);
             },
           );
@@ -135,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage>
           children: <Widget>[
             showWidgets(widgets),
             showTools(tools),
-            Center(child: Text('会员中心')),
+            showWidgets(extend),
             Center(child: Text('分类')),
           ]);
 

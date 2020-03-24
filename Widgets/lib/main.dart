@@ -1,5 +1,8 @@
+import 'package:demo2/Extends/LCSwiper.dart';
 import 'package:demo2/Tools/LCHttpRequest.dart';
 import 'package:demo2/Tools/LCJson.dart';
+import 'package:demo2/Tools/LCSharedPreferences.dart';
+import 'package:demo2/Tools/LCToast.dart';
 import 'package:demo2/Widgets/LCtextField.dart';
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
@@ -92,8 +95,15 @@ class _MyAppState extends State<MyApp> {
         //tools
         '/http': (_) => LCHttpRequest(),
         '/json': (_) => LCJson(),
-        // '/http': (_) => LCHttpRequest(),
-        // '/http': (_) => LCHttpRequest(),
+        '/toast': (_) => LCToast(),
+        '/shared_preferences': (_) => LCSharedPreferences(),
+
+        //extends
+        '/swiper': (_) => LCSwiper(),
+        // '/json': (_) => LCJson(),
+        // '/toast': (_) => LCToast(),
+        // '/shared_preferences': (_) => LCSharedPreferences(),
+
       },
     );
   }
