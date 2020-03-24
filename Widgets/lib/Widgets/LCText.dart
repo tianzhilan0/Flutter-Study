@@ -6,12 +6,12 @@ class LCText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Text'),
         ),
-        body:ListView(
+        body:Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               "文本一",
@@ -60,7 +60,6 @@ class LCText extends StatelessWidget {
             )
           ],
         )
-      ),
     );
   }
 }

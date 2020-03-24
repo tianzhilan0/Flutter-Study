@@ -14,7 +14,7 @@ class _LCImageState extends State<LCImage> {
     return Container(
       child: Scaffold(
           appBar: AppBar(title: Text("Image")),
-          body: ListView(children: [
+          body: Column(children: [
             Image.network(
               "http://img2018.cnblogs.com/news/66372/201809/66372-20180921155512352-228425089.jpg",
               // color: Colors.blue,

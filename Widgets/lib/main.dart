@@ -1,3 +1,6 @@
+import 'package:demo2/Tools/LCHttpRequest.dart';
+import 'package:demo2/Tools/LCJson.dart';
+import 'package:demo2/Widgets/LCtextField.dart';
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
 //基础类 Widget
@@ -34,8 +37,6 @@ import 'package:demo2/Widgets/LCSizedOverflowBox.dart';
 //GridView
 //CustomScrollView
 
-
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -46,7 +47,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -56,15 +56,15 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
-      routes: <String, WidgetBuilder> {
-        
+      routes: <String, WidgetBuilder>{
         //基础类 Widget
         '/text': (_) => LCText(),
+        '/textField': (_) => LCTextField(),
         '/button': (_) => LCButton(),
         '/image': (_) => LCImage(),
         '/checkbox': (_) => LCCheckBox(),
         '/switch': (_) => LCSwitch(),
-        
+
         //容器类 Widget
         '/padding': (_) => LCPadding(),
         '/constrainedbox': (_) => LCConstrainedBox(),
@@ -72,7 +72,7 @@ class _MyAppState extends State<MyApp> {
         '/transform': (_) => LCTransform(),
         '/rotatedbox': (_) => LCRotatedBox(),
         '/container': (_) => LCContainer(),
-        
+
         //布局类 Widget
         '/row': (_) => LCRow(),
         '/column': (_) => LCColumn(),
@@ -88,6 +88,12 @@ class _MyAppState extends State<MyApp> {
         '/offstage': (_) => LCOffstage(),
         '/overflowBox': (_) => LCOverflowBox(),
         '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+
+        //tools
+        '/http': (_) => LCHttpRequest(),
+        '/json': (_) => LCJson(),
+        // '/http': (_) => LCHttpRequest(),
+        // '/http': (_) => LCHttpRequest(),
       },
     );
   }

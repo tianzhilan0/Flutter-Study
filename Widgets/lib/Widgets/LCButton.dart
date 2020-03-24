@@ -13,7 +13,9 @@ class _LCButtonState extends State<LCButton> {
     return Container(
       child: Scaffold(
         appBar: AppBar(title: Text("Button")),
-        body: ListView(children: [
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
           SizedBox(
             height: 20,
           ),

@@ -1,9 +1,31 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatelessWidget {
-  final List<Map> items = [
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key}) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  TabController _tabController;
+  @override
+  void initState() {
+    super.initState();
+    _tabController = new TabController(vsync: this, length: 4);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  List<Map> widgets = [
     //基础类 Widget
     {"title": "Text", "path": "/text"},
+    {"title": "TextField", "path": "/textField"},
     {"title": "Button", "path": "/button"},
     {"title": "Image", "path": "/image"},
     {"title": "CheckBox", "path": "/checkbox"},
@@ -34,26 +56,34 @@ class MyHomePage extends StatelessWidget {
     {"title": "SizedOverflowBox", "path": "/sizedOverflowBox"},
   ];
 
+  List<Map> tools = [
+    {"avatar":"http","title": "网络请求", "detail": "dio和http", "path": "/http"},
+    {"avatar":"json","title": "JSON解析", "detail": "", "path": "/json"},
+    {"avatar":"http","title": "网络请求", "detail": "dqio和http", "path": "/text"},
+    {"avatar":"http","title": "网络请求", "detail": "dio和http", "path": "/text"},
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-        length: 4,
-        child: Scaffold(
-            appBar: AppBar(
-                title: Text('TabBar Page'),
-                bottom: TabBar(tabs: <Widget>[
-                  Tab(text: '今日爆款'),
-                  Tab(text: '土货生鲜'),
-                  Tab(text: '会员中心'),
-                  Tab(text: '分类')
-                ])),
-            body: TabBarView(children: <Widget>[
-              Center(child: Text('今日爆款')),
-              Center(child: Text('土货生鲜')),
-              Center(child: Text('会员中心')),
-              Center(child: Text('分类'))
-            ])));
 
+
+
+
+    
+    return Scaffold(
+        appBar: AppBar(
+          title: _tabBarTop(),
+          // leading: Text("更多"),
+          actions: <Widget>[
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Icon(Icons.list))
+          ],
+        ),
+        body: _tabBarView());
+  }
+
+    Widget showWidgets(List<Map> items) {
     return Container(
         child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -80,4 +110,42 @@ class MyHomePage extends StatelessWidget {
               );
             }));
   }
+
+  Widget showTools(List<Map> items) {
+    return ListView.builder(
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: CircleAvatar(
+                        child: Text(items[index]["avatar"]),
+                      ),
+            title: Text(items[index]["title"]),
+            subtitle: Text(items[index]["detail"]),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: (){
+              Navigator.pushNamed(context, items[index]["path"]);
+            },
+          );
+        });
+  }
+
+  _tabBarView() => TabBarView(
+          controller: _tabController,
+          physics: NeverScrollableScrollPhysics(),
+          children: <Widget>[
+            showWidgets(widgets),
+            showTools(tools),
+            Center(child: Text('会员中心')),
+            Center(child: Text('分类')),
+          ]);
+
+  _tabBarTop() => TabBar(
+      isScrollable: true,
+      tabs: <Widget>[
+        Tab(text: 'Widgets'),
+        Tab(text: 'Tools'),
+        Tab(text: 'Extends'),
+        Tab(text: 'Other'),
+      ],
+      controller: _tabController);
 }

@@ -7,7 +7,7 @@ class LCSizedOverflowBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        appBar: AppBar(title: Text("")),
+        appBar: AppBar(title: Text("SizedOverflowBox")),
         body: Container(
           color: Colors.green,
           alignment: Alignment.topRight,
