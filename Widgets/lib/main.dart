@@ -49,6 +49,12 @@ import 'package:demo2/WidgetsLayout/LCListTitle.dart';
 import 'package:demo2/WidgetsLayout/LCRadioListTile.dart';
 import 'package:demo2/WidgetsLayout/LCSwitchListTile.dart';
 
+//复杂类 Widget
+import 'package:demo2/WidgetsComplex/LCPopupMenuButton.dart';
+import 'package:demo2/WidgetsComplex/LCAlertDialog.dart';
+import 'package:demo2/WidgetsComplex/LCShowDatePicker.dart';
+import 'package:demo2/WidgetsComplex/LCSnackBar.dart';
+
 //滚动布局
 //SingleChildScrollView
 //CustomScrollView
@@ -134,6 +140,10 @@ class _MyAppState extends State<MyApp> {
 
 
         //复杂类 Widget
+        '/popupMenuButton': (_) => LCPopupMenuButton(),
+        '/alertDialog': (_) => LCAlertDialog(),
+        '/showDatePicker': (_) => LCShowDatePicker(),
+        '/snackBar': (_) => LCSnackBar(),
 
 
         //tools

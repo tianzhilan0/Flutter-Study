@@ -78,19 +78,10 @@ class _MyHomePageState extends State<MyHomePage>
   ];
 
   List<Map> complexWidgets = [
-    {"title": "PopupMenuButton", "path": "/toast"},
-    {"title": "alter/sheet", "path": "/toast"},
-    {"title": "show", "path": "/toast"},
-    {"title": "showDatePicker", "path": "/toast"},
-    {"title": "showTimePicker", "path": "/toast"},
-    {"title": "BottomSheet", "path": "/toast"},
-    {"title": "showBottomSheet", "path": "/toast"},
-    {"title": "showModalBottomSheet", "path": "/toast"},
-    {"title": "Dialog", "path": "/toast"},
-    {"title": "AlertDialog", "path": "/toast"},
-    {"title": "SimpleDialog", "path": "/toast"},
-    {"title": "AboutDialog", "path": "/toast"},
-    {"title": "SnackBar", "path": "/toast"},
+    {"title": "PopupMenuButton", "path": "/popupMenuButton"},
+    {"title": "AlertDialog", "path": "/alertDialog"},
+    {"title": "showDatePicker", "path": "/showDatePicker"},
+    {"title": "SnackBar", "path": "/snackBar"},
   ];
 
   List<Map> systemTools = [
@@ -240,7 +231,7 @@ class _MyHomePageState extends State<MyHomePage>
         Tab(text: '基础Widget'),
         Tab(text: '容器Widget'),
         Tab(text: '布局Widget'),
-        Tab(text: '复杂组件'),
+        Tab(text: '复杂Widget'),
         Tab(text: '系统功能'),
         Tab(text: '第三方'),
         Tab(text: '扩展'),
