@@ -53,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "SizedBox", "path": "/sizedBox"},
     {"title": "SizedOverflowBox", "path": "/sizedOverflowBox"},
     {"title": "FractionallySizedBox", "path": "/fractionallySizedBox"},
-
   ];
 
   List<Map> layoutWidgets = [
@@ -74,19 +73,11 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "Table", "path": "/table"},
     {"title": "ListTitle", "path": "/listTitle"},
     {"title": "CheckboxListTile", "path": "/checkboxListTile"},
-
-    //
-
-    // {"title": "RadioListTitle", "path": "/switch"},
-    // {"title": "SwitchListTile", "path": "/switch"},
-
+    {"title": "RadioListTile", "path": "/radioListTile"},
+    {"title": "SwitchListTile", "path": "/switchListTile"},
   ];
-  List<Map> complexWidgets = [];
 
-  List<Map> systemTools = [
-    {"title": "状态管理Provider", "path": "/switch"},
-    {"title": "Steam", "path": "/shared_preferences"},
-    {"title": "InheritedWidget", "path": "/shared_preferences"},
+  List<Map> complexWidgets = [
     {"title": "PopupMenuButton", "path": "/toast"},
     {"title": "alter/sheet", "path": "/toast"},
     {"title": "show", "path": "/toast"},
@@ -100,6 +91,13 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "SimpleDialog", "path": "/toast"},
     {"title": "AboutDialog", "path": "/toast"},
     {"title": "SnackBar", "path": "/toast"},
+  ];
+
+  List<Map> systemTools = [
+    {"title": "状态管理Provider", "path": "/switch"},
+    {"title": "Steam", "path": "/shared_preferences"},
+    {"title": "InheritedWidget", "path": "/shared_preferences"},
+
   ];
 
   List<Map> otherTools = [

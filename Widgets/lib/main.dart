@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
 //基础类 Widget
@@ -45,11 +46,11 @@ import 'package:demo2/WidgetsLayout/LCFlow.dart';
 import 'package:demo2/WidgetsLayout/LCTable.dart';
 import 'package:demo2/WidgetsLayout/LCCheckboxListTile.dart';
 import 'package:demo2/WidgetsLayout/LCListTitle.dart';
+import 'package:demo2/WidgetsLayout/LCRadioListTile.dart';
+import 'package:demo2/WidgetsLayout/LCSwitchListTile.dart';
 
 //滚动布局
 //SingleChildScrollView
-//ListView
-//GridView
 //CustomScrollView
 
 //第三方工具
@@ -128,13 +129,12 @@ class _MyAppState extends State<MyApp> {
         '/table': (_) => LCTable(),
         '/listTitle': (_) => LCListTitle(),
         '/checkboxListTile': (_) => LCCheckboxListTile(),
+        '/radioListTile': (_) => LCRadioListTile(),
+        '/switchListTile': (_) => LCSwitchListTile(),
 
-        // //
-        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
-        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
-        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
-        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
-        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+
+        //复杂类 Widget
+
 
         //tools
         '/http': (_) => LCHttpRequest(),
