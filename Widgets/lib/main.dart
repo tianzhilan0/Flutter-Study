@@ -1,45 +1,66 @@
-import 'package:demo2/Extends/LCLogin.dart';
-import 'package:demo2/Extends/LCSwiper.dart';
-import 'package:demo2/Tools/LCHttpRequest.dart';
-import 'package:demo2/Tools/LCJson.dart';
-import 'package:demo2/Tools/LCSharedPreferences.dart';
-import 'package:demo2/Tools/LCToast.dart';
-import 'package:demo2/Widgets/LCtextField.dart';
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
 //基础类 Widget
-import 'package:demo2/Widgets/LCText.dart';
-import 'package:demo2/Widgets/LCButton.dart';
-import 'package:demo2/Widgets/LCImage.dart';
-import 'package:demo2/Widgets/LCCheckBox.dart';
-import 'package:demo2/Widgets/LCSwitch.dart';
+import 'package:demo2/WidgetsBase/LCButton.dart';
+import 'package:demo2/WidgetsBase/LCCheckBox.dart';
+import 'package:demo2/WidgetsBase/LCImage.dart';
+import 'package:demo2/WidgetsBase/LCOffstage.dart';
+import 'package:demo2/WidgetsBase/LCSwitch.dart';
+import 'package:demo2/WidgetsBase/LCText.dart';
+import 'package:demo2/WidgetsBase/LCprogress.dart';
+import 'package:demo2/WidgetsBase/LCtextField.dart';
+import 'package:demo2/WidgetsBase/LCChip.dart';
+import 'package:demo2/WidgetsBase/LCChoiceChip.dart';
+import 'package:demo2/WidgetsBase/LCGestureDetector.dart';
+import 'package:demo2/WidgetsBase/LCDivider.dart';
+
 //容器类 Widget
-import 'package:demo2/Widgets/LCPadding.dart';
-import 'package:demo2/Widgets/LCConstrainedBox.dart';
-import 'package:demo2/Widgets/LCDecoratedBox.dart';
-import 'package:demo2/Widgets/LCTransform.dart';
-import 'package:demo2/Widgets/LCRotatedBox.dart';
-import 'package:demo2/Widgets/LCContainer.dart';
+import 'package:demo2/WidgetsBox/LCConstrainedBox.dart';
+import 'package:demo2/WidgetsBox/LCContainer.dart';
+import 'package:demo2/WidgetsBox/LCDecoratedBox.dart';
+import 'package:demo2/WidgetsBox/LCFittedBox.dart';
+import 'package:demo2/WidgetsBox/LCInkWell.dart';
+import 'package:demo2/WidgetsBox/LCLimitedBox.dart';
+import 'package:demo2/WidgetsBox/LCOverflowBox.dart';
+import 'package:demo2/WidgetsBox/LCPadding.dart';
+import 'package:demo2/WidgetsBox/LCRotatedBox.dart';
+import 'package:demo2/WidgetsBox/LCSizedOverflowBox.dart';
+import 'package:demo2/WidgetsBox/LCTransform.dart';
+import 'package:demo2/WidgetsBox/LCFractionallySizedBox.dart';
+import 'package:demo2/WidgetsBox/LCSizeBox.dart';
 //布局类 Widget
-import 'package:demo2/Widgets/LCRow.dart';
-import 'package:demo2/Widgets/LCColumn.dart';
-import 'package:demo2/Widgets/LCFlex.dart';
-import 'package:demo2/Widgets/LCWrap.dart';
-import 'package:demo2/Widgets/LCStack.dart';
-import 'package:demo2/Widgets/LCAlign.dart';
-import 'package:demo2/Widgets/LCFittedBox.dart';
-import 'package:demo2/Widgets/LCAspectRatio.dart';
-import 'package:demo2/Widgets/LCBaseline.dart';
-import 'package:demo2/Widgets/LCFractionallySizedBox.dart';
-import 'package:demo2/Widgets/LCLimitedBox.dart';
-import 'package:demo2/Widgets/LCOffstage.dart';
-import 'package:demo2/Widgets/LCOverflowBox.dart';
-import 'package:demo2/Widgets/LCSizedOverflowBox.dart';
+import 'package:demo2/WidgetsLayout/LCColumn.dart';
+import 'package:demo2/WidgetsLayout/LCFlex.dart';
+import 'package:demo2/WidgetsLayout/LCRow.dart';
+import 'package:demo2/WidgetsLayout/LCStack.dart';
+import 'package:demo2/WidgetsLayout/LCWrap.dart';
+import 'package:demo2/WidgetsLayout/LCExpanded.dart';
+import 'package:demo2/WidgetsLayout/LCAlign.dart';
+import 'package:demo2/WidgetsLayout/LCAspectRatio.dart';
+import 'package:demo2/WidgetsLayout/LCBaseline.dart';
+import 'package:demo2/WidgetsLayout/LCGridView.dart';
+import 'package:demo2/WidgetsLayout/LCListView.dart';
+import 'package:demo2/WidgetsLayout/LCCard.dart';
+import 'package:demo2/WidgetsLayout/LCFlow.dart';
+import 'package:demo2/WidgetsLayout/LCTable.dart';
+import 'package:demo2/WidgetsLayout/LCCheckboxListTile.dart';
+import 'package:demo2/WidgetsLayout/LCListTitle.dart';
+
 //滚动布局
 //SingleChildScrollView
 //ListView
 //GridView
 //CustomScrollView
+
+//第三方工具
+import 'package:demo2/Tools/LCHttpRequest.dart';
+import 'package:demo2/Tools/LCJson.dart';
+import 'package:demo2/Tools/LCSharedPreferences.dart';
+import 'package:demo2/Tools/LCToast.dart';
+
+//扩展
+import 'package:demo2/Extends/LCLogin.dart';
+import 'package:demo2/Extends/LCSwiper.dart';
 
 void main() => runApp(MyApp());
 
@@ -67,15 +88,28 @@ class _MyAppState extends State<MyApp> {
         '/button': (_) => LCButton(),
         '/image': (_) => LCImage(),
         '/checkbox': (_) => LCCheckBox(),
+        '/choiceChip': (_) => LCChoiceChip(),
         '/switch': (_) => LCSwitch(),
+        '/progress': (_) => LCProgress(),
+        '/offstage': (_) => LCOffstage(),
+        '/gestureDetector': (_) => LCGestureDetector(),
+        '/chip': (_) => LCChip(),
+        '/divider': (_) => LCDivider(),
 
         //容器类 Widget
         '/padding': (_) => LCPadding(),
+        '/container': (_) => LCContainer(),
+        '/inkWell': (_) => LCInkWell(),
+        '/transform': (_) => LCTransform(),
         '/constrainedbox': (_) => LCConstrainedBox(),
         '/decoratedbox': (_) => LCDecoratedBox(),
-        '/transform': (_) => LCTransform(),
         '/rotatedbox': (_) => LCRotatedBox(),
-        '/container': (_) => LCContainer(),
+        '/fittedbox': (_) => LCFittedBox(),
+        '/limitedBox': (_) => LCLimitedBox(),
+        '/overflowBox': (_) => LCOverflowBox(),
+        '/sizedBox': (_) => LCSizeBox(),
+        '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+        '/fractionallySizedBox': (_) => LCFractionallySizedBox(),
 
         //布局类 Widget
         '/row': (_) => LCRow(),
@@ -83,15 +117,24 @@ class _MyAppState extends State<MyApp> {
         '/flex': (_) => LCFlex(),
         '/wrap': (_) => LCWrap(),
         '/stack': (_) => LCStack(),
+        '/expanded': (_) => LCExpanded(),
         '/align': (_) => LCAlign(),
-        '/fittedbox': (_) => LCFittedBox(),
         '/aspectratio': (_) => LCAspectRatio(),
         '/baseline': (_) => LCBaseline(),
-        '/fractionallySizedBox': (_) => LCFractionallySizedBox(),
-        '/limitedBox': (_) => LCLimitedBox(),
-        '/offstage': (_) => LCOffstage(),
-        '/overflowBox': (_) => LCOverflowBox(),
-        '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+        '/listView': (_) => LCListView(),
+        '/gridView': (_) => LCGridView(),
+        '/card': (_) => LCCard(),
+        '/flow': (_) => LCFlow(),
+        '/table': (_) => LCTable(),
+        '/listTitle': (_) => LCListTitle(),
+        '/checkboxListTile': (_) => LCCheckboxListTile(),
+
+        // //
+        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+        // '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
 
         //tools
         '/http': (_) => LCHttpRequest(),
@@ -109,7 +152,6 @@ class _MyAppState extends State<MyApp> {
         // '/shared_preferences': (_) => LCSharedPreferences(),
         // '/shared_preferences': (_) => LCSharedPreferences(),
         // '/shared_preferences': (_) => LCSharedPreferences(),
-
       },
     );
   }

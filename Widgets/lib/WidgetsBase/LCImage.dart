@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class LCImage extends StatefulWidget {
@@ -14,7 +13,7 @@ class _LCImageState extends State<LCImage> {
     return Container(
       child: Scaffold(
           appBar: AppBar(title: Text("Image")),
-          body: Column(children: [
+          body: ListView(children: [
             Image.network(
               "http://img2018.cnblogs.com/news/66372/201809/66372-20180921155512352-228425089.jpg",
               // color: Colors.blue,
@@ -26,6 +25,23 @@ class _LCImageState extends State<LCImage> {
 
               // centerSlice: Rect.fromLTWH(10, 10, 10, 10),
             ),
+            new Image(
+                image: new NetworkImage(
+                    'http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg')),
+            ClipOval(
+    child: Image.network(
+    "http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg",
+    scale: 8.5,
+  ),
+),
+CircleAvatar(
+  backgroundImage: NetworkImage(
+        "http://n.sinaimg.cn/sports/2_img/upload/cf0d0fdd/107/w1024h683/20181128/pKtl-hphsupx4744393.jpg",
+        scale:0.5
+
+  ),
+  radius: 50.0,
+),
             Center(
                 child: Image.asset(
               "images/tabbar-home.png",

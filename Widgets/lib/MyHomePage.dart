@@ -13,7 +13,7 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 4);
+    _tabController = new TabController(vsync: this, length: 8);
   }
 
   @override
@@ -22,61 +22,72 @@ class _MyHomePageState extends State<MyHomePage>
     super.dispose();
   }
 
-  List<Map> widgets = [
+  List<Map> baseWidgets = [
     //基础类 Widget
     {"title": "Text", "path": "/text"},
     {"title": "TextField", "path": "/textField"},
     {"title": "Button", "path": "/button"},
     {"title": "Image", "path": "/image"},
     {"title": "CheckBox", "path": "/checkbox"},
+    {"title": "ChoiceChip", "path": "/choiceChip"},
     {"title": "Switch", "path": "/switch"},
+    {"title": "Progress", "path": "/progress"},
+    {"title": "Offstage", "path": "/offstage"},
+    {"title": "GestureDetector", "path": "/gestureDetector"},
+    {"title": "chip", "path": "/chip"},
+    {"title": "Divider", "path": "/divider"},
+  ];
 
+  List<Map> boxWidgets = [
     //容器类 Widget
     {"title": "Padding", "path": "/padding"},
+    {"title": "Container", "path": "/container"},
+    {"title": "InkWell", "path": "/inkWell"},
+    {"title": "Transform", "path": "/transform"},
     {"title": "ConstrainedBox", "path": "/constrainedbox"},
     {"title": "DecoratedBox", "path": "/decoratedbox"},
-    {"title": "Transform", "path": "/transform"},
     {"title": "RotatedBox", "path": "/rotatedbox"},
-    {"title": "Container", "path": "/container"},
+    {"title": "FittedBox", "path": "/fittedbox"},
+    {"title": "LimitedBox", "path": "/limitedBox"},
+    {"title": "OverflowBox", "path": "/overflowBox"},
+    {"title": "SizedBox", "path": "/sizedBox"},
+    {"title": "SizedOverflowBox", "path": "/sizedOverflowBox"},
+    {"title": "FractionallySizedBox", "path": "/fractionallySizedBox"},
 
+  ];
+
+  List<Map> layoutWidgets = [
     //布局类 Widget
     {"title": "Row", "path": "/row"},
     {"title": "Column", "path": "/column"},
     {"title": "Flex", "path": "/flex"},
     {"title": "Wrap", "path": "/wrap"},
     {"title": "Stack/Positioned", "path": "/stack"},
+    {"title": "Expanded/Flexible", "path": "/expanded"},
     {"title": "Align", "path": "/align"},
-    {"title": "FittedBox", "path": "/fittedbox"},
     {"title": "AspectRatio", "path": "/aspectratio"},
     {"title": "Baseline", "path": "/baseline"},
-    {"title": "FractionallySizedBox", "path": "/fractionallySizedBox"},
-    {"title": "LimitedBox", "path": "/limitedBox"},
-    {"title": "Offstage", "path": "/offstage"},
-    {"title": "OverflowBox", "path": "/overflowBox"},
-    {"title": "SizedOverflowBox", "path": "/sizedOverflowBox"},
+    {"title": "ListView", "path": "/listView"},
+    {"title": "GridView", "path": "/gridView"},
+    {"title": "Card", "path": "/card"},
+    {"title": "Flow", "path": "/flow"},
+    {"title": "Table", "path": "/table"},
+    {"title": "ListTitle", "path": "/listTitle"},
+    {"title": "CheckboxListTile", "path": "/checkboxListTile"},
 
     //
 
-    {"title": "InkWell", "path": "/switch"},
-    {"title": "AspectRatio", "path": "/switch"},
-    {"title": "Expanded", "path": "/switch"},
-    {"title": "ListView", "path": "/switch"},
-    {"title": "GridView", "path": "/switch"},
-    {"title": "Flow", "path": "/switch"},
-    {"title": "Table", "path": "/switch"},
-    {"title": "ListTitle", "path": "/switch"},
-    {"title": "CheckboxListTitle", "path": "/switch"},
-    {"title": "RadioListTitle", "path": "/switch"},
-    {"title": "SwitchListTile", "path": "/switch"},
-    {"title": "GestureDetector", "path": "/switch"},
-    {"title": "进度条", "path": "/switch"},
-    {"title": "卡片", "path": "/switch"},
-    {"title": "chip（未）", "path": "/switch"},
+    // {"title": "RadioListTitle", "path": "/switch"},
+    // {"title": "SwitchListTile", "path": "/switch"},
+
+  ];
+  List<Map> complexWidgets = [];
+
+  List<Map> systemTools = [
     {"title": "状态管理Provider", "path": "/switch"},
     {"title": "Steam", "path": "/shared_preferences"},
     {"title": "InheritedWidget", "path": "/shared_preferences"},
     {"title": "PopupMenuButton", "path": "/toast"},
-
     {"title": "alter/sheet", "path": "/toast"},
     {"title": "show", "path": "/toast"},
     {"title": "showDatePicker", "path": "/toast"},
@@ -91,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "SnackBar", "path": "/toast"},
   ];
 
-  List<Map> tools = [
+  List<Map> otherTools = [
     {"title": "网络请求", "path": "/http"},
     {"title": "JSON解析", "path": "/json"},
     {"title": "Toast", "path": "/toast"},
@@ -156,11 +167,11 @@ class _MyHomePageState extends State<MyHomePage>
         appBar: AppBar(
           title: _tabBarTop(),
           // leading: Text("更多"),
-          actions: <Widget>[
-            Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Icon(Icons.list))
-          ],
+          // actions: <Widget>[
+          //   Padding(
+          //       padding: EdgeInsets.symmetric(horizontal: 10),
+          //       child: Icon(Icons.list))
+          // ],
         ),
         body: _tabBarView());
   }
@@ -178,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage>
             itemCount: items.length,
             itemBuilder: (context, index) {
               return RaisedButton(
-                color: Colors.lightBlue,
+                color: Colors.lightBlueAccent,
                 child: Text(
                   items[index]["title"],
                   style: TextStyle(fontSize: 16, color: Colors.white),
@@ -215,8 +226,12 @@ class _MyHomePageState extends State<MyHomePage>
           controller: _tabController,
           physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
-            showWidgets(widgets),
-            showWidgets(tools),
+            showWidgets(baseWidgets),
+            showWidgets(boxWidgets),
+            showWidgets(layoutWidgets),
+            showWidgets(complexWidgets),
+            showWidgets(systemTools),
+            showWidgets(otherTools),
             showWidgets(extend),
             showWidgets(develop),
           ]);
@@ -224,10 +239,14 @@ class _MyHomePageState extends State<MyHomePage>
   _tabBarTop() => TabBar(
       isScrollable: true,
       tabs: <Widget>[
-        Tab(text: 'Widgets'),
-        Tab(text: 'Tools'),
-        Tab(text: 'Extends'),
-        Tab(text: 'Develop'),
+        Tab(text: '基础Widget'),
+        Tab(text: '容器Widget'),
+        Tab(text: '布局Widget'),
+        Tab(text: '复杂组件'),
+        Tab(text: '系统功能'),
+        Tab(text: '第三方'),
+        Tab(text: '扩展'),
+        Tab(text: '实战'),
       ],
       controller: _tabController);
 }

@@ -20,7 +20,7 @@ class _LCButtonState extends State<LCButton> {
             height: 20,
           ),
           RaisedButton(
-              child: Text("RaisedButton", style: new TextStyle(fontSize: 30)),
+              child: Text("RaisedButton", style: new TextStyle(fontSize: 18)),
               textColor: Colors.blue,
               color: Colors.orange,
               disabledColor: Colors.brown, //波纹颜色
@@ -32,7 +32,7 @@ class _LCButtonState extends State<LCButton> {
               disabledElevation: 2,
               padding: EdgeInsets.all(20), //内部间距
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30)), //圆角
+                  borderRadius: BorderRadius.all(Radius.circular(20)), //圆角
                   side: BorderSide(
                       color: Color(0xFFFFFFFF),
                       style: BorderStyle.solid,
@@ -65,13 +65,13 @@ class _LCButtonState extends State<LCButton> {
               },
               child: Text(
                 "FlatButton",
-                style: new TextStyle(fontSize: 30),
+                style: new TextStyle(fontSize: 20),
               )),
           SizedBox(
             height: 20,
           ),
           OutlineButton(
-            child: Text("OutlineButton", style: TextStyle(fontSize: 30)),
+            child: Text("OutlineButton", style: TextStyle(fontSize: 20)),
             onPressed: () {
               print("你点击了 OutlineButton");
             },
@@ -113,7 +113,7 @@ class _LCButtonState extends State<LCButton> {
           //     icon: new Icon(Icons.add_a_photo),
           //     iconSize: 24,
           //     hint: Text('data'),
-          //     elevation: 30,
+          //     elevation: 20,
           //     style: TextStyle(color: Colors.deepPurple),
           //     underline: Container(
           //       height: 2,
