@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
+import 'package:provider/provider.dart';
+
 //基础类 Widget
 import 'package:demo2/WidgetsBase/LCButton.dart';
 import 'package:demo2/WidgetsBase/LCCheckBox.dart';
@@ -29,6 +30,7 @@ import 'package:demo2/WidgetsBox/LCSizedOverflowBox.dart';
 import 'package:demo2/WidgetsBox/LCTransform.dart';
 import 'package:demo2/WidgetsBox/LCFractionallySizedBox.dart';
 import 'package:demo2/WidgetsBox/LCSizeBox.dart';
+
 //布局类 Widget
 import 'package:demo2/WidgetsLayout/LCColumn.dart';
 import 'package:demo2/WidgetsLayout/LCFlex.dart';
@@ -48,12 +50,17 @@ import 'package:demo2/WidgetsLayout/LCCheckboxListTile.dart';
 import 'package:demo2/WidgetsLayout/LCListTitle.dart';
 import 'package:demo2/WidgetsLayout/LCRadioListTile.dart';
 import 'package:demo2/WidgetsLayout/LCSwitchListTile.dart';
+import 'package:demo2/WidgetsLayout/LCCustomScrollView.dart';
+import 'package:demo2/WidgetsLayout/LCSingleChildScrollView.dart';
+import 'package:demo2/WidgetsLayout/LCNestedScrollView.dart';
 
 //复杂类 Widget
 import 'package:demo2/WidgetsComplex/LCPopupMenuButton.dart';
 import 'package:demo2/WidgetsComplex/LCAlertDialog.dart';
 import 'package:demo2/WidgetsComplex/LCShowDatePicker.dart';
 import 'package:demo2/WidgetsComplex/LCSnackBar.dart';
+import 'package:demo2/WidgetsComplex/LCStream.dart';
+import 'package:demo2/WidgetsComplex/LCInheritedWidget.dart';
 
 //滚动布局
 //SingleChildScrollView
@@ -64,12 +71,15 @@ import 'package:demo2/Tools/LCHttpRequest.dart';
 import 'package:demo2/Tools/LCJson.dart';
 import 'package:demo2/Tools/LCSharedPreferences.dart';
 import 'package:demo2/Tools/LCToast.dart';
+import 'package:demo2/Tools/LCProvider.dart';
 
 //扩展
 import 'package:demo2/Extends/LCLogin.dart';
 import 'package:demo2/Extends/LCSwiper.dart';
 
-void main() => runApp(MyApp());
+void main(){
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   MyApp({Key key}) : super(key: key);
@@ -82,7 +92,11 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(     /// 注意MultiProvider的用法！
+      providers: [
+        ChangeNotifierProvider(create: (_) => ProviderPostData({})),
+      ],
+      child: MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -137,6 +151,9 @@ class _MyAppState extends State<MyApp> {
         '/checkboxListTile': (_) => LCCheckboxListTile(),
         '/radioListTile': (_) => LCRadioListTile(),
         '/switchListTile': (_) => LCSwitchListTile(),
+        '/singleChildScrollView': (_) => LCSingleChildScrollView(),
+        '/customScrollView': (_) => LCCustomScrollView(),
+        '/nestedScrollView': (_) => LCNestedScrollView(),
 
 
         //复杂类 Widget
@@ -144,6 +161,7 @@ class _MyAppState extends State<MyApp> {
         '/alertDialog': (_) => LCAlertDialog(),
         '/showDatePicker': (_) => LCShowDatePicker(),
         '/snackBar': (_) => LCSnackBar(),
+        '/steam': (_) => LCStream(),
 
 
         //tools
@@ -152,17 +170,23 @@ class _MyAppState extends State<MyApp> {
         '/toast': (_) => LCToast(),
         '/shared_preferences': (_) => LCSharedPreferences(),
 
-        //extends
+        //第三方
         '/swiper': (_) => LCSwiper(),
         '/json': (_) => LCJson(),
         '/toast': (_) => LCToast(),
         '/shared_preferences': (_) => LCSharedPreferences(),
+        '/provider': (_) => LCProvider(),
+        '/inheritedWidget': (_) => LCInheritedWidget(),
+
+
+
+        //扩展
         '/login': (_) => LCLogin(),
         // '/shared_preferences': (_) => LCSharedPreferences(),
         // '/shared_preferences': (_) => LCSharedPreferences(),
         // '/shared_preferences': (_) => LCSharedPreferences(),
         // '/shared_preferences': (_) => LCSharedPreferences(),
       },
-    );
+    ));
   }
 }

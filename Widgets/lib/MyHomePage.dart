@@ -13,7 +13,7 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 8);
+    _tabController = new TabController(vsync: this, length: 7);
   }
 
   @override
@@ -75,6 +75,10 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "CheckboxListTile", "path": "/checkboxListTile"},
     {"title": "RadioListTile", "path": "/radioListTile"},
     {"title": "SwitchListTile", "path": "/switchListTile"},
+    {"title": "SingleChildScrollView", "path": "/singleChildScrollView"},
+    {"title": "CustomScrollView", "path": "/customScrollView"},
+    {"title": "NestedScrollView", "path": "/nestedScrollView"},
+
   ];
 
   List<Map> complexWidgets = [
@@ -82,20 +86,19 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "AlertDialog", "path": "/alertDialog"},
     {"title": "showDatePicker", "path": "/showDatePicker"},
     {"title": "SnackBar", "path": "/snackBar"},
+    {"title": "Steam", "path": "/steam"},
+    {"title": "InheritedWidget", "path": "/inheritedWidget"},
   ];
 
-  List<Map> systemTools = [
-    {"title": "状态管理Provider", "path": "/switch"},
-    {"title": "Steam", "path": "/shared_preferences"},
-    {"title": "InheritedWidget", "path": "/shared_preferences"},
-
-  ];
-
+  //第三方
   List<Map> otherTools = [
     {"title": "网络请求", "path": "/http"},
     {"title": "JSON解析", "path": "/json"},
     {"title": "Toast", "path": "/toast"},
     {"title": "shared_preferences", "path": "/shared_preferences"},
+    {"title": "Provider", "path": "/provider"},
+
+
     {"title": "文件读写", "path": "/shared_preferences"},
     {"title": "数据库Sqflite", "path": "/shared_preferences"},
     {"title": "RxDart", "path": "/shared_preferences"},
@@ -219,7 +222,6 @@ class _MyHomePageState extends State<MyHomePage>
             showWidgets(boxWidgets),
             showWidgets(layoutWidgets),
             showWidgets(complexWidgets),
-            showWidgets(systemTools),
             showWidgets(otherTools),
             showWidgets(extend),
             showWidgets(develop),
@@ -232,7 +234,6 @@ class _MyHomePageState extends State<MyHomePage>
         Tab(text: '容器Widget'),
         Tab(text: '布局Widget'),
         Tab(text: '复杂Widget'),
-        Tab(text: '系统功能'),
         Tab(text: '第三方'),
         Tab(text: '扩展'),
         Tab(text: '实战'),
