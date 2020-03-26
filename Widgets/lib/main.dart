@@ -73,6 +73,8 @@ import 'package:demo2/Tools/LCProvider.dart';
 import 'package:demo2/Tools/LCRxDart.dart';
 import 'package:demo2/Tools/LCRefresh.dart';
 import 'package:demo2/Tools/LCLoading.dart';
+import 'package:demo2/Tools/LCImagePicker.dart';
+import 'package:demo2/Tools/LCSystemCamera.dart';
 
 //扩展
 import 'package:demo2/Extends/LCLogin.dart';
@@ -205,6 +207,9 @@ class _MyAppState extends State<MyApp> {
             '/swiper': (_) => LCSwiper(),
             '/refresh': (_) => LCRefresh(),
             '/loading': (_) => LCLoading(),
+            '/imagePicker': (_) => LCImagePicker(),
+            '/systemCamera': (_) => LCSystemCamera(),
+            // '/camera': (_) => LCImagePicker(),
 
             //扩展
             '/login': (_) => LCLogin(),
