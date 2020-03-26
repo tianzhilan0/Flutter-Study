@@ -97,16 +97,17 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "Toast", "path": "/toast"},
     {"title": "shared_preferences", "path": "/shared_preferences"},
     {"title": "Provider", "path": "/provider"},
+    {"title": "RxDart", "path": "/rxDart"},
+    {"title": "轮播图", "path": "/swiper"},
+    {"title": "下拉刷新", "path": "/refresh"},
+    {"title": "Loading", "path": "/loading"},
 
+    {"title": "抽屉效果", "path": "/http"},
 
     {"title": "文件读写", "path": "/shared_preferences"},
     {"title": "数据库Sqflite", "path": "/shared_preferences"},
-    {"title": "RxDart", "path": "/shared_preferences"},
     {"title": "Socket", "path": "/shared_preferences"},
-    {"title": "Loading", "path": "/shared_preferences"},
-    {"title": "轮播图", "path": "/swiper"},
-    {"title": "下拉刷新", "path": "/login"},
-    {"title": "抽屉效果", "path": "/http"},
+
     {"title": "相机", "path": "/http"},
     {"title": "自定义相机", "path": "/http"},
     {"title": "相册", "path": "/http"},

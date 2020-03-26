@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 //基础类 Widget
 import 'package:demo2/WidgetsBase/LCButton.dart';
@@ -62,23 +64,38 @@ import 'package:demo2/WidgetsComplex/LCSnackBar.dart';
 import 'package:demo2/WidgetsComplex/LCStream.dart';
 import 'package:demo2/WidgetsComplex/LCInheritedWidget.dart';
 
-//滚动布局
-//SingleChildScrollView
-//CustomScrollView
-
 //第三方工具
 import 'package:demo2/Tools/LCHttpRequest.dart';
 import 'package:demo2/Tools/LCJson.dart';
 import 'package:demo2/Tools/LCSharedPreferences.dart';
 import 'package:demo2/Tools/LCToast.dart';
 import 'package:demo2/Tools/LCProvider.dart';
+import 'package:demo2/Tools/LCRxDart.dart';
+import 'package:demo2/Tools/LCRefresh.dart';
+import 'package:demo2/Tools/LCLoading.dart';
 
 //扩展
 import 'package:demo2/Extends/LCLogin.dart';
 import 'package:demo2/Extends/LCSwiper.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
+  configLoading();
+}
+
+void configLoading() {
+  EasyLoading.instance
+    ..displayDuration = const Duration(milliseconds: 2000)
+    ..indicatorType = EasyLoadingIndicatorType.fadingCircle
+    ..loadingStyle = EasyLoadingStyle.dark
+    ..indicatorSize = 45.0
+    ..radius = 10.0
+    ..progressColor = Colors.yellow
+    ..backgroundColor = Colors.green
+    ..indicatorColor = Colors.yellow
+    ..textColor = Colors.yellow
+    ..maskColor = Colors.blue.withOpacity(0.5)
+    ..userInteractions = true;
 }
 
 class MyApp extends StatefulWidget {
@@ -92,101 +109,110 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(     /// 注意MultiProvider的用法！
-      providers: [
-        ChangeNotifierProvider(create: (_) => ProviderPostData({})),
-      ],
-      child: MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
-      routes: <String, WidgetBuilder>{
-        //基础类 Widget
-        '/text': (_) => LCText(),
-        '/textField': (_) => LCTextField(),
-        '/button': (_) => LCButton(),
-        '/image': (_) => LCImage(),
-        '/checkbox': (_) => LCCheckBox(),
-        '/choiceChip': (_) => LCChoiceChip(),
-        '/switch': (_) => LCSwitch(),
-        '/progress': (_) => LCProgress(),
-        '/offstage': (_) => LCOffstage(),
-        '/gestureDetector': (_) => LCGestureDetector(),
-        '/chip': (_) => LCChip(),
-        '/divider': (_) => LCDivider(),
+    return FlutterEasyLoading(
+      child: MultiProvider(
 
-        //容器类 Widget
-        '/padding': (_) => LCPadding(),
-        '/container': (_) => LCContainer(),
-        '/inkWell': (_) => LCInkWell(),
-        '/transform': (_) => LCTransform(),
-        '/constrainedbox': (_) => LCConstrainedBox(),
-        '/decoratedbox': (_) => LCDecoratedBox(),
-        '/rotatedbox': (_) => LCRotatedBox(),
-        '/fittedbox': (_) => LCFittedBox(),
-        '/limitedBox': (_) => LCLimitedBox(),
-        '/overflowBox': (_) => LCOverflowBox(),
-        '/sizedBox': (_) => LCSizeBox(),
-        '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
-        '/fractionallySizedBox': (_) => LCFractionallySizedBox(),
+        /// 注意MultiProvider的用法！
+        providers: [
+          ChangeNotifierProvider(create: (_) => ProviderPostData({})),
+        ],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          localizationsDelegates: [
+            GlobalEasyRefreshLocalizations.delegate,
+          ],
+          supportedLocales: [
+            Locale('en', ''),
+            Locale('zh', 'CN'),
+          ],
+          home: MyHomePage(),
+          routes: <String, WidgetBuilder>{
+            //基础类 Widget
+            '/text': (_) => LCText(),
+            '/textField': (_) => LCTextField(),
+            '/button': (_) => LCButton(),
+            '/image': (_) => LCImage(),
+            '/checkbox': (_) => LCCheckBox(),
+            '/choiceChip': (_) => LCChoiceChip(),
+            '/switch': (_) => LCSwitch(),
+            '/progress': (_) => LCProgress(),
+            '/offstage': (_) => LCOffstage(),
+            '/gestureDetector': (_) => LCGestureDetector(),
+            '/chip': (_) => LCChip(),
+            '/divider': (_) => LCDivider(),
 
-        //布局类 Widget
-        '/row': (_) => LCRow(),
-        '/column': (_) => LCColumn(),
-        '/flex': (_) => LCFlex(),
-        '/wrap': (_) => LCWrap(),
-        '/stack': (_) => LCStack(),
-        '/expanded': (_) => LCExpanded(),
-        '/align': (_) => LCAlign(),
-        '/aspectratio': (_) => LCAspectRatio(),
-        '/baseline': (_) => LCBaseline(),
-        '/listView': (_) => LCListView(),
-        '/gridView': (_) => LCGridView(),
-        '/card': (_) => LCCard(),
-        '/flow': (_) => LCFlow(),
-        '/table': (_) => LCTable(),
-        '/listTitle': (_) => LCListTitle(),
-        '/checkboxListTile': (_) => LCCheckboxListTile(),
-        '/radioListTile': (_) => LCRadioListTile(),
-        '/switchListTile': (_) => LCSwitchListTile(),
-        '/singleChildScrollView': (_) => LCSingleChildScrollView(),
-        '/customScrollView': (_) => LCCustomScrollView(),
-        '/nestedScrollView': (_) => LCNestedScrollView(),
+            //容器类 Widget
+            '/padding': (_) => LCPadding(),
+            '/container': (_) => LCContainer(),
+            '/inkWell': (_) => LCInkWell(),
+            '/transform': (_) => LCTransform(),
+            '/constrainedbox': (_) => LCConstrainedBox(),
+            '/decoratedbox': (_) => LCDecoratedBox(),
+            '/rotatedbox': (_) => LCRotatedBox(),
+            '/fittedbox': (_) => LCFittedBox(),
+            '/limitedBox': (_) => LCLimitedBox(),
+            '/overflowBox': (_) => LCOverflowBox(),
+            '/sizedBox': (_) => LCSizeBox(),
+            '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+            '/fractionallySizedBox': (_) => LCFractionallySizedBox(),
 
+            //布局类 Widget
+            '/row': (_) => LCRow(),
+            '/column': (_) => LCColumn(),
+            '/flex': (_) => LCFlex(),
+            '/wrap': (_) => LCWrap(),
+            '/stack': (_) => LCStack(),
+            '/expanded': (_) => LCExpanded(),
+            '/align': (_) => LCAlign(),
+            '/aspectratio': (_) => LCAspectRatio(),
+            '/baseline': (_) => LCBaseline(),
+            '/listView': (_) => LCListView(),
+            '/gridView': (_) => LCGridView(),
+            '/card': (_) => LCCard(),
+            '/flow': (_) => LCFlow(),
+            '/table': (_) => LCTable(),
+            '/listTitle': (_) => LCListTitle(),
+            '/checkboxListTile': (_) => LCCheckboxListTile(),
+            '/radioListTile': (_) => LCRadioListTile(),
+            '/switchListTile': (_) => LCSwitchListTile(),
+            '/singleChildScrollView': (_) => LCSingleChildScrollView(),
+            '/customScrollView': (_) => LCCustomScrollView(),
+            '/nestedScrollView': (_) => LCNestedScrollView(),
 
-        //复杂类 Widget
-        '/popupMenuButton': (_) => LCPopupMenuButton(),
-        '/alertDialog': (_) => LCAlertDialog(),
-        '/showDatePicker': (_) => LCShowDatePicker(),
-        '/snackBar': (_) => LCSnackBar(),
-        '/steam': (_) => LCStream(),
+            //复杂类 Widget
+            '/popupMenuButton': (_) => LCPopupMenuButton(),
+            '/alertDialog': (_) => LCAlertDialog(),
+            '/showDatePicker': (_) => LCShowDatePicker(),
+            '/snackBar': (_) => LCSnackBar(),
+            '/steam': (_) => LCStream(),
+            '/inheritedWidget': (_) => LCInheritedWidget(),
 
+            //tools
+            '/http': (_) => LCHttpRequest(),
+            '/json': (_) => LCJson(),
+            '/toast': (_) => LCToast(),
+            '/shared_preferences': (_) => LCSharedPreferences(),
 
-        //tools
-        '/http': (_) => LCHttpRequest(),
-        '/json': (_) => LCJson(),
-        '/toast': (_) => LCToast(),
-        '/shared_preferences': (_) => LCSharedPreferences(),
+            //第三方
+            '/json': (_) => LCJson(),
+            '/toast': (_) => LCToast(),
+            '/shared_preferences': (_) => LCSharedPreferences(),
+            '/provider': (_) => LCProvider(),
+            '/rxDart': (_) => LCRxDart(),
+            '/swiper': (_) => LCSwiper(),
+            '/refresh': (_) => LCRefresh(),
+            '/loading': (_) => LCLoading(),
 
-        //第三方
-        '/swiper': (_) => LCSwiper(),
-        '/json': (_) => LCJson(),
-        '/toast': (_) => LCToast(),
-        '/shared_preferences': (_) => LCSharedPreferences(),
-        '/provider': (_) => LCProvider(),
-        '/inheritedWidget': (_) => LCInheritedWidget(),
-
-
-
-        //扩展
-        '/login': (_) => LCLogin(),
-        // '/shared_preferences': (_) => LCSharedPreferences(),
-        // '/shared_preferences': (_) => LCSharedPreferences(),
-        // '/shared_preferences': (_) => LCSharedPreferences(),
-        // '/shared_preferences': (_) => LCSharedPreferences(),
-      },
-    ));
+            //扩展
+            '/login': (_) => LCLogin(),
+            // '/shared_preferences': (_) => LCSharedPreferences(),
+            // '/shared_preferences': (_) => LCSharedPreferences(),
+            // '/shared_preferences': (_) => LCSharedPreferences(),
+            // '/shared_preferences': (_) => LCSharedPreferences(),
+          },
+        )));
   }
 }
