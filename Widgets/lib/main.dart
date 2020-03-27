@@ -215,6 +215,7 @@ class _MyAppState extends State<MyApp> {
             '/imagePicker': (_) => LCImagePicker(),
             '/systemCamera': (_) => LCSystemCamera(),
             // '/camera': (_) => LCImagePicker(),
+
             //扩展
             '/login': (_) => LCLogin(),
             // '/shared_preferences': (_) => LCSharedPreferences(),

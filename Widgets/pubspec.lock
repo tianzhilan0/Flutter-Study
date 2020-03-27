@@ -198,6 +198,7 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.6.5+rc.1"
+    version: "4.6.4"
   nested:
     dependency: transitive
     description:

@@ -103,15 +103,16 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "下拉刷新", "path": "/refresh"},
     {"title": "Loading", "path": "/loading"},
     {"title": "WebView", "path": "/webView"},
+    {"title": "相册", "path": "/imagePicker"},
+    {"title": "系统相机相册", "path": "/systemCamera"},
+    {"title": "相机", "path": "/camera"},
 
 
     {"title": "文件读写", "path": "/shared_preferences"},
     {"title": "数据库Sqflite", "path": "/shared_preferences"},
     {"title": "Socket", "path": "/shared_preferences"},
 
-    {"title": "相机", "path": "/http"},
     {"title": "自定义相机", "path": "/http"},
-    {"title": "相册", "path": "/http"},
     {"title": "相册多图选择", "path": "/http"},
     {"title": "定时器", "path": "/http"},
   ];
