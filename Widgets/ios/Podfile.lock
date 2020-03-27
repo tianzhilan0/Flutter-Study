@@ -55,9 +55,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-
-SPEC REPOS:
-  trunk:
     - BSGridCollectionViewLayout
     - BSImagePicker
     - BSImageView
