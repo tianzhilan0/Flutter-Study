@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -75,6 +76,8 @@ import 'package:demo2/Tools/LCRxDart.dart';
 import 'package:demo2/Tools/LCRefresh.dart';
 import 'package:demo2/Tools/LCLoading.dart';
 import 'package:demo2/Tools/LCWebView.dart';
+import 'package:demo2/Tools/LCImagePicker.dart';
+import 'package:demo2/Tools/LCSystemCamera.dart';
 
 //扩展
 import 'package:demo2/Extends/LCLogin.dart';
@@ -209,7 +212,9 @@ class _MyAppState extends State<MyApp> {
             '/refresh': (_) => LCRefresh(),
             '/loading': (_) => LCLoading(),
             '/webView': (_) => LCWebView(),
-
+            '/imagePicker': (_) => LCImagePicker(),
+            '/systemCamera': (_) => LCSystemCamera(),
+            // '/camera': (_) => LCImagePicker(),
             //扩展
             '/login': (_) => LCLogin(),
             // '/shared_preferences': (_) => LCSharedPreferences(),
