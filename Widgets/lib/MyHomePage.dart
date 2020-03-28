@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "Loading", "path": "/loading"},
     {"title": "相册", "path": "/imagePicker"},
     {"title": "系统相机相册", "path": "/systemCamera"},
-    {"title": "相机", "path": "/camera"},
+    {"title": "自定义相机", "path": "/camera"},
 
 
     {"title": "文件读写", "path": "/shared_preferences"},

@@ -75,6 +75,7 @@ import 'package:demo2/Tools/LCRefresh.dart';
 import 'package:demo2/Tools/LCLoading.dart';
 import 'package:demo2/Tools/LCImagePicker.dart';
 import 'package:demo2/Tools/LCSystemCamera.dart';
+import 'package:demo2/Tools/LCCamera.dart';
 
 //扩展
 import 'package:demo2/Extends/LCLogin.dart';
@@ -209,7 +210,7 @@ class _MyAppState extends State<MyApp> {
             '/loading': (_) => LCLoading(),
             '/imagePicker': (_) => LCImagePicker(),
             '/systemCamera': (_) => LCSystemCamera(),
-            // '/camera': (_) => LCImagePicker(),
+            '/camera': (_) => LCCamera(),
 
             //扩展
             '/login': (_) => LCLogin(),
