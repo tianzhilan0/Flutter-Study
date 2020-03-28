@@ -39,6 +39,7 @@ dependencies:
   image_picker: ^0.6.3+4
   video_player: ^0.10.8+1
   camera: ^0.5.7+4
+  path_provider: ^0.5.0
 
   
 dev_dependencies:
