@@ -88,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "SnackBar", "path": "/snackBar"},
     {"title": "Steam", "path": "/steam"},
     {"title": "InheritedWidget", "path": "/inheritedWidget"},
+    {"title": "Drawer", "path": "/drawer"},
   ];
 
   //第三方
@@ -101,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "轮播图", "path": "/swiper"},
     {"title": "下拉刷新", "path": "/refresh"},
     {"title": "Loading", "path": "/loading"},
+    {"title": "WebView", "path": "/webView"},
     {"title": "相册", "path": "/imagePicker"},
     {"title": "系统相机相册", "path": "/systemCamera"},
     {"title": "自定义相机", "path": "/camera"},
@@ -112,7 +114,6 @@ class _MyHomePageState extends State<MyHomePage>
 
     {"title": "自定义相机", "path": "/http"},
     {"title": "相册多图选择", "path": "/http"},
-    {"title": "WebView", "path": "/http"},
     {"title": "定时器", "path": "/http"},
   ];
 

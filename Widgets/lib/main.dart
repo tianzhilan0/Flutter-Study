@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -63,6 +64,7 @@ import 'package:demo2/WidgetsComplex/LCShowDatePicker.dart';
 import 'package:demo2/WidgetsComplex/LCSnackBar.dart';
 import 'package:demo2/WidgetsComplex/LCStream.dart';
 import 'package:demo2/WidgetsComplex/LCInheritedWidget.dart';
+import 'package:demo2/WidgetsComplex/LCDrawer.dart';
 
 //第三方工具
 import 'package:demo2/Tools/LCHttpRequest.dart';
@@ -73,6 +75,7 @@ import 'package:demo2/Tools/LCProvider.dart';
 import 'package:demo2/Tools/LCRxDart.dart';
 import 'package:demo2/Tools/LCRefresh.dart';
 import 'package:demo2/Tools/LCLoading.dart';
+import 'package:demo2/Tools/LCWebView.dart';
 import 'package:demo2/Tools/LCImagePicker.dart';
 import 'package:demo2/Tools/LCSystemCamera.dart';
 import 'package:demo2/Tools/LCCamera.dart';
@@ -192,6 +195,7 @@ class _MyAppState extends State<MyApp> {
             '/snackBar': (_) => LCSnackBar(),
             '/steam': (_) => LCStream(),
             '/inheritedWidget': (_) => LCInheritedWidget(),
+            '/drawer': (_) => LCDrawer(),
 
             //tools
             '/http': (_) => LCHttpRequest(),
@@ -208,6 +212,7 @@ class _MyAppState extends State<MyApp> {
             '/swiper': (_) => LCSwiper(),
             '/refresh': (_) => LCRefresh(),
             '/loading': (_) => LCLoading(),
+            '/webView': (_) => LCWebView(),
             '/imagePicker': (_) => LCImagePicker(),
             '/systemCamera': (_) => LCSystemCamera(),
             '/camera': (_) => LCCamera(),
