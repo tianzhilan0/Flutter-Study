@@ -44,7 +44,7 @@ CircleAvatar(
 ),
             Center(
                 child: Image.asset(
-              "images/tabbar-home.png",
+              "assets/images/tabbar-home.png",
               width: 64,
               height: 64,
               fit: BoxFit.cover,

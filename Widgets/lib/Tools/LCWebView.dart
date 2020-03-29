@@ -30,7 +30,7 @@ class LCWebView extends StatefulWidget {
 class _LCWebViewState extends State<LCWebView> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
-  bool _loading = true;
+  // bool _loading = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

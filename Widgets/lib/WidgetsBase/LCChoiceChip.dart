@@ -29,10 +29,10 @@ class _LCChoiceChipState extends State<LCChoiceChip> {
         //图标和标签间距
         labelPadding: EdgeInsets.all(10),
         //是否选中监听事件
-        onSelected: (isSelect) => {
+        onSelected: (isSelect) {
           setState(() {
             check = !check;
-          })
+          });
         },
         //按下阴影的宽度
         pressElevation: 0.5,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -65,6 +64,8 @@ import 'package:demo2/WidgetsComplex/LCSnackBar.dart';
 import 'package:demo2/WidgetsComplex/LCStream.dart';
 import 'package:demo2/WidgetsComplex/LCInheritedWidget.dart';
 import 'package:demo2/WidgetsComplex/LCDrawer.dart';
+import 'package:demo2/WidgetsComplex/LCTimer.dart';
+import 'package:demo2/WidgetsComplex/LCSocket.dart';
 
 //第三方工具
 import 'package:demo2/Tools/LCHttpRequest.dart';
@@ -73,16 +74,24 @@ import 'package:demo2/Tools/LCSharedPreferences.dart';
 import 'package:demo2/Tools/LCToast.dart';
 import 'package:demo2/Tools/LCProvider.dart';
 import 'package:demo2/Tools/LCRxDart.dart';
+import 'package:demo2/Tools/LCSwiper.dart';
 import 'package:demo2/Tools/LCRefresh.dart';
 import 'package:demo2/Tools/LCLoading.dart';
 import 'package:demo2/Tools/LCWebView.dart';
 import 'package:demo2/Tools/LCImagePicker.dart';
 import 'package:demo2/Tools/LCSystemCamera.dart';
 import 'package:demo2/Tools/LCCamera.dart';
+import 'package:demo2/Tools/LCWriteRead.dart';
+import 'package:demo2/Tools/LCSqflite.dart';
 
 //扩展
-import 'package:demo2/Extends/LCLogin.dart';
-import 'package:demo2/Extends/LCSwiper.dart';
+import 'package:demo2/Extend/LCRichText.dart';
+import 'package:demo2/Extend/LCGif.dart';
+import 'package:demo2/Extend/LCLocalHtml.dart';
+import 'package:demo2/Extend/LCFont.dart';
+
+//实战
+import 'package:demo2/RealDevelop/LCLogin.dart';
 
 void main() {
   runApp(MyApp());
@@ -196,14 +205,11 @@ class _MyAppState extends State<MyApp> {
             '/steam': (_) => LCStream(),
             '/inheritedWidget': (_) => LCInheritedWidget(),
             '/drawer': (_) => LCDrawer(),
-
-            //tools
-            '/http': (_) => LCHttpRequest(),
-            '/json': (_) => LCJson(),
-            '/toast': (_) => LCToast(),
-            '/shared_preferences': (_) => LCSharedPreferences(),
+            '/timer': (_) => LCTimer(),
+            '/socket': (_) => LCSocket(),
 
             //第三方
+            '/http': (_) => LCHttpRequest(),
             '/json': (_) => LCJson(),
             '/toast': (_) => LCToast(),
             '/shared_preferences': (_) => LCSharedPreferences(),
@@ -216,8 +222,16 @@ class _MyAppState extends State<MyApp> {
             '/imagePicker': (_) => LCImagePicker(),
             '/systemCamera': (_) => LCSystemCamera(),
             '/camera': (_) => LCCamera(),
+            '/writeRead': (_) => LCWriteRead(),
+            '/sqflite': (_) => LCSqflite(),
 
             //扩展
+            '/richText': (_) => LCRichText(),
+            '/gif': (_) => LCGif(),
+            '/localHtml': (_) => LCLocalHtml(),
+            '/font': (_) => LCFont(),
+
+            //实战
             '/login': (_) => LCLogin(),
             // '/shared_preferences': (_) => LCSharedPreferences(),
             // '/shared_preferences': (_) => LCSharedPreferences(),

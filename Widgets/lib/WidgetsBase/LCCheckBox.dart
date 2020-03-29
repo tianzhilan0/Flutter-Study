@@ -43,10 +43,10 @@ class _LCCheckBoxState extends State<LCCheckBox> {
               }),
           CheckboxListTile(
             value: check,
-            onChanged: (isCheck) => {
+            onChanged: (isCheck) {
               setState(() {
                 check = !check;
-              })
+              });
             },
             activeColor: Colors.red,
             title: Text('这是title'),

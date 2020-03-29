@@ -89,6 +89,8 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "Steam", "path": "/steam"},
     {"title": "InheritedWidget", "path": "/inheritedWidget"},
     {"title": "Drawer", "path": "/drawer"},
+    {"title": "定时器", "path": "/timer"},
+    {"title": "Socket", "path": "/socket"},
   ];
 
   //第三方
@@ -106,31 +108,21 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "系统相机相册", "path": "/systemCamera"},
     {"title": "相册多图选择", "path": "/imagePicker"},
     {"title": "自定义相机", "path": "/camera"},
-
-
-    {"title": "文件读写", "path": "/shared_preferences"},
-    {"title": "数据库Sqflite", "path": "/shared_preferences"},
-    {"title": "Socket", "path": "/shared_preferences"},
-
-    {"title": "定时器", "path": "/http"},
+    {"title": "文件读写", "path": "/writeRead"},
+    {"title": "数据库Sqflite", "path": "/sqflite"},
   ];
 
   List<Map> extend = [
-    {"title": "富文本", "path": "/http"},
-    {"title": "GIF图", "path": "/http"},
-    {"title": "朋友圈头", "path": "/http"},
-    {"title": "导航栏", "path": "/http"},
-    {"title": "导航TabBar", "path": "/http"},
-    {"title": "底部Tabbar", "path": "/http"},
-    {"title": "自定义底部Tabbar", "path": "/http"},
+    {"title": "富文本", "path": "/richText"},
+    {"title": "GIF图", "path": "/gif"},
+    {"title": "加载本地HTML", "path": "/localHtml"},
+    {"title": "自定义字体", "path": "/font"},
+
     {"title": "多线程", "path": "/http"},
     {"title": "推送", "path": "/http"},
-    {"title": "自定义字体", "path": "/http"},
     {"title": "视频播放", "path": "/http"},
     {"title": "音乐播放", "path": "/http"},
-    {"title": "本地文件写读", "path": "/http"},
     {"title": "地址选择", "path": "/http"},
-    {"title": "日历选择", "path": "/http"},
     {"title": "分享", "path": "/http"},
     {"title": "统计", "path": "/http"},
     {"title": "第三方登录", "path": "/http"},

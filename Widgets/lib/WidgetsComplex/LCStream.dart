@@ -63,7 +63,6 @@ class _LCStreamState extends State<LCStream> {
         },
       ),
     ));
-    ;
   }
 }
 

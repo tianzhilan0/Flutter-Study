@@ -202,7 +202,7 @@ class ChoiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+    // final TextStyle textStyle = Theme.of(context).textTheme.display1;
 
     Widget _itemBuilder(BuildContext context,int index){
       return ListTile(

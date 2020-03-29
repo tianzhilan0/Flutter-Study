@@ -24,7 +24,7 @@ class LCStack extends StatelessWidget {
                   top: 10,
                   right: 10,
                   child: Image.asset(
-                    "images/tabbar-home.png",
+                    "assets/images/tabbar-home.png",
                     width: 100,
                     fit: BoxFit.fitWidth,
                   ),

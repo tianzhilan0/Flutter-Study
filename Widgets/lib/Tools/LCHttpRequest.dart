@@ -69,7 +69,7 @@ class _LCHttpRequestState extends State<LCHttpRequest> {
 
   Future<void> nativeHttpGET() async {
     var httpClient = HttpClient();
-    var params = Map<String, String>();
+    // var params = Map<String, String>();
     // uri方法1
     Uri uri = Uri(
         scheme: 'http', host: 'api.oyear.cn', path: "/api/Nonghanginvest/data");
