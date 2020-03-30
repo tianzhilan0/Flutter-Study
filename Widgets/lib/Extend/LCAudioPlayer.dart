@@ -183,7 +183,9 @@ class _SeekBarState extends State<SeekBar> {
         },
       ),
 
-      Row(children:[
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children:[
         Text("${widget.position}"),
         Text("${widget.duration}"),
       ])

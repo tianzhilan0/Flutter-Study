@@ -1,3 +1,4 @@
+import 'package:demo2/AppConfig.dart';
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -94,14 +95,156 @@ import 'package:demo2/Extend/LCThread.dart';
 import 'package:demo2/Extend/LCVideoPlayer.dart';
 import 'package:demo2/Extend/LCWXRecord.dart';
 import 'package:demo2/Extend/LCAudioPlayer.dart';
-
+import 'package:demo2/Extend/LCDraw.dart';
+import 'package:demo2/Extend/LCDiscountFigure.dart';
 
 //实战
 import 'package:demo2/RealDevelop/LCLogin.dart';
 
-void main() {
-  runApp(MyApp());
-  configLoading();
+class MyApp extends StatefulWidget {
+  MyApp({Key key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  // This widget is the root of your application.
+  bool _showPerformanceOverlay = defaultConfig.showPerformanceOverlay;
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterEasyLoading(
+        child: MultiProvider(
+            /// 注意MultiProvider的用法！
+            providers: [
+          ChangeNotifierProvider(create: (_) => ProviderPostData({})),
+        ],
+            child: MaterialApp(
+              title: defaultConfig.appName,
+              theme: defaultConfig.theme,
+              localizationsDelegates: [
+                GlobalEasyRefreshLocalizations.delegate,
+              ],
+              supportedLocales: [
+                Locale('en', ''),
+                Locale('zh', 'CN'),
+              ],
+              showPerformanceOverlay: _showPerformanceOverlay,
+              home: MyHomePage(
+                showPerformanceOverlay: _showPerformanceOverlay,
+                onShowPerformanceOverlayChanged: (bool value) {
+                  print("main $value");
+                  setState(() {
+                    _showPerformanceOverlay = value;
+                  });
+                },
+              ),
+              routes: <String, WidgetBuilder>{
+                //基础类 Widget
+                '/text': (_) => LCText(),
+                '/textField': (_) => LCTextField(),
+                '/button': (_) => LCButton(),
+                '/image': (_) => LCImage(),
+                '/checkbox': (_) => LCCheckBox(),
+                '/choiceChip': (_) => LCChoiceChip(),
+                '/switch': (_) => LCSwitch(),
+                '/progress': (_) => LCProgress(),
+                '/offstage': (_) => LCOffstage(),
+                '/gestureDetector': (_) => LCGestureDetector(),
+                '/chip': (_) => LCChip(),
+                '/divider': (_) => LCDivider(),
+
+                //容器类 Widget
+                '/padding': (_) => LCPadding(),
+                '/container': (_) => LCContainer(),
+                '/inkWell': (_) => LCInkWell(),
+                '/transform': (_) => LCTransform(),
+                '/constrainedbox': (_) => LCConstrainedBox(),
+                '/decoratedbox': (_) => LCDecoratedBox(),
+                '/rotatedbox': (_) => LCRotatedBox(),
+                '/fittedbox': (_) => LCFittedBox(),
+                '/limitedBox': (_) => LCLimitedBox(),
+                '/overflowBox': (_) => LCOverflowBox(),
+                '/sizedBox': (_) => LCSizeBox(),
+                '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
+                '/fractionallySizedBox': (_) => LCFractionallySizedBox(),
+
+                //布局类 Widget
+                '/row': (_) => LCRow(),
+                '/column': (_) => LCColumn(),
+                '/flex': (_) => LCFlex(),
+                '/wrap': (_) => LCWrap(),
+                '/stack': (_) => LCStack(),
+                '/expanded': (_) => LCExpanded(),
+                '/align': (_) => LCAlign(),
+                '/aspectratio': (_) => LCAspectRatio(),
+                '/baseline': (_) => LCBaseline(),
+                '/listView': (_) => LCListView(),
+                '/gridView': (_) => LCGridView(),
+                '/card': (_) => LCCard(),
+                '/flow': (_) => LCFlow(),
+                '/table': (_) => LCTable(),
+                '/listTitle': (_) => LCListTitle(),
+                '/checkboxListTile': (_) => LCCheckboxListTile(),
+                '/radioListTile': (_) => LCRadioListTile(),
+                '/switchListTile': (_) => LCSwitchListTile(),
+                '/singleChildScrollView': (_) => LCSingleChildScrollView(),
+                '/customScrollView': (_) => LCCustomScrollView(),
+                '/nestedScrollView': (_) => LCNestedScrollView(),
+
+                //复杂类 Widget
+                '/popupMenuButton': (_) => LCPopupMenuButton(),
+                '/alertDialog': (_) => LCAlertDialog(),
+                '/showDatePicker': (_) => LCShowDatePicker(),
+                '/snackBar': (_) => LCSnackBar(),
+                '/steam': (_) => LCStream(),
+                '/inheritedWidget': (_) => LCInheritedWidget(),
+                '/drawer': (_) => LCDrawer(),
+                '/timer': (_) => LCTimer(),
+                '/socket': (_) => LCSocket(),
+
+                //第三方
+                '/http': (_) => LCHttpRequest(),
+                '/json': (_) => LCJson(),
+                '/toast': (_) => LCToast(),
+                '/shared_preferences': (_) => LCSharedPreferences(),
+                '/provider': (_) => LCProvider(),
+                '/rxDart': (_) => LCRxDart(),
+                '/swiper': (_) => LCSwiper(),
+                '/refresh': (_) => LCRefresh(),
+                '/loading': (_) => LCLoading(),
+                '/webView': (_) => LCWebView(),
+                '/imagePicker': (_) => LCImagePicker(),
+                '/systemCamera': (_) => LCSystemCamera(),
+                '/camera': (_) => LCCamera(),
+                '/writeRead': (_) => LCWriteRead(),
+                '/sqflite': (_) => LCSqflite(),
+
+                //扩展
+                '/richText': (_) => LCRichText(),
+                '/gif': (_) => LCGif(),
+                '/localHtml': (_) => LCLocalHtml(),
+                '/font': (_) => LCFont(),
+                '/thread': (_) => LCThread(),
+                '/videoPlayer': (_) => LCVideoPlayer(),
+                '/audioPlayer': (_) => LCAudioPlayer(),
+                "/record": (_) => LCRecord(),
+                "/wxrecord": (_) => LCWXRecord(),
+                "/draw": (_) => LCDraw(),
+                "/discountFigure": (_) => LCDiscountFigure(),
+
+                //实战
+                '/login': (_) => LCLogin(),
+                // '/shared_preferences': (_) => LCSharedPreferences(),
+                // '/shared_preferences': (_) => LCSharedPreferences(),
+                // '/shared_preferences': (_) => LCSharedPreferences(),
+                // '/shared_preferences': (_) => LCSharedPreferences(),
+              },
+            )));
+
+            
+  }
 }
 
 void configLoading() {
@@ -119,136 +262,8 @@ void configLoading() {
     ..userInteractions = true;
 }
 
-class MyApp extends StatefulWidget {
-  MyApp({Key key}) : super(key: key);
-
-  @override
-  _MyAppState createState() => _MyAppState();
+void main() {
+  runApp(MyApp());
+  configLoading();
 }
 
-class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return FlutterEasyLoading(
-      child: MultiProvider(
-
-        /// 注意MultiProvider的用法！
-        providers: [
-          ChangeNotifierProvider(create: (_) => ProviderPostData({})),
-        ],
-        child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          localizationsDelegates: [
-            GlobalEasyRefreshLocalizations.delegate,
-          ],
-          supportedLocales: [
-            Locale('en', ''),
-            Locale('zh', 'CN'),
-          ],
-          home: MyHomePage(),
-          routes: <String, WidgetBuilder>{
-            //基础类 Widget
-            '/text': (_) => LCText(),
-            '/textField': (_) => LCTextField(),
-            '/button': (_) => LCButton(),
-            '/image': (_) => LCImage(),
-            '/checkbox': (_) => LCCheckBox(),
-            '/choiceChip': (_) => LCChoiceChip(),
-            '/switch': (_) => LCSwitch(),
-            '/progress': (_) => LCProgress(),
-            '/offstage': (_) => LCOffstage(),
-            '/gestureDetector': (_) => LCGestureDetector(),
-            '/chip': (_) => LCChip(),
-            '/divider': (_) => LCDivider(),
-
-            //容器类 Widget
-            '/padding': (_) => LCPadding(),
-            '/container': (_) => LCContainer(),
-            '/inkWell': (_) => LCInkWell(),
-            '/transform': (_) => LCTransform(),
-            '/constrainedbox': (_) => LCConstrainedBox(),
-            '/decoratedbox': (_) => LCDecoratedBox(),
-            '/rotatedbox': (_) => LCRotatedBox(),
-            '/fittedbox': (_) => LCFittedBox(),
-            '/limitedBox': (_) => LCLimitedBox(),
-            '/overflowBox': (_) => LCOverflowBox(),
-            '/sizedBox': (_) => LCSizeBox(),
-            '/sizedOverflowBox': (_) => LCSizedOverflowBox(),
-            '/fractionallySizedBox': (_) => LCFractionallySizedBox(),
-
-            //布局类 Widget
-            '/row': (_) => LCRow(),
-            '/column': (_) => LCColumn(),
-            '/flex': (_) => LCFlex(),
-            '/wrap': (_) => LCWrap(),
-            '/stack': (_) => LCStack(),
-            '/expanded': (_) => LCExpanded(),
-            '/align': (_) => LCAlign(),
-            '/aspectratio': (_) => LCAspectRatio(),
-            '/baseline': (_) => LCBaseline(),
-            '/listView': (_) => LCListView(),
-            '/gridView': (_) => LCGridView(),
-            '/card': (_) => LCCard(),
-            '/flow': (_) => LCFlow(),
-            '/table': (_) => LCTable(),
-            '/listTitle': (_) => LCListTitle(),
-            '/checkboxListTile': (_) => LCCheckboxListTile(),
-            '/radioListTile': (_) => LCRadioListTile(),
-            '/switchListTile': (_) => LCSwitchListTile(),
-            '/singleChildScrollView': (_) => LCSingleChildScrollView(),
-            '/customScrollView': (_) => LCCustomScrollView(),
-            '/nestedScrollView': (_) => LCNestedScrollView(),
-
-            //复杂类 Widget
-            '/popupMenuButton': (_) => LCPopupMenuButton(),
-            '/alertDialog': (_) => LCAlertDialog(),
-            '/showDatePicker': (_) => LCShowDatePicker(),
-            '/snackBar': (_) => LCSnackBar(),
-            '/steam': (_) => LCStream(),
-            '/inheritedWidget': (_) => LCInheritedWidget(),
-            '/drawer': (_) => LCDrawer(),
-            '/timer': (_) => LCTimer(),
-            '/socket': (_) => LCSocket(),
-
-            //第三方
-            '/http': (_) => LCHttpRequest(),
-            '/json': (_) => LCJson(),
-            '/toast': (_) => LCToast(),
-            '/shared_preferences': (_) => LCSharedPreferences(),
-            '/provider': (_) => LCProvider(),
-            '/rxDart': (_) => LCRxDart(),
-            '/swiper': (_) => LCSwiper(),
-            '/refresh': (_) => LCRefresh(),
-            '/loading': (_) => LCLoading(),
-            '/webView': (_) => LCWebView(),
-            '/imagePicker': (_) => LCImagePicker(),
-            '/systemCamera': (_) => LCSystemCamera(),
-            '/camera': (_) => LCCamera(),
-            '/writeRead': (_) => LCWriteRead(),
-            '/sqflite': (_) => LCSqflite(),
-
-            //扩展
-            '/richText': (_) => LCRichText(),
-            '/gif': (_) => LCGif(),
-            '/localHtml': (_) => LCLocalHtml(),
-            '/font': (_) => LCFont(),
-            '/thread': (_) => LCThread(),
-            '/videoPlayer': (_) => LCVideoPlayer(),
-            '/audioPlayer': (_) => LCAudioPlayer(),
-            "/record": (_) => LCRecord(),
-            "/wxrecord": (_) => LCWXRecord(),
-
-            //实战
-            '/login': (_) => LCLogin(),
-            // '/shared_preferences': (_) => LCSharedPreferences(),
-            // '/shared_preferences': (_) => LCSharedPreferences(),
-            // '/shared_preferences': (_) => LCSharedPreferences(),
-            // '/shared_preferences': (_) => LCSharedPreferences(),
-          },
-        )));
-  }
-}

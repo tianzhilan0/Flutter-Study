@@ -1,7 +1,17 @@
+import 'package:demo2/AppConfig.dart';
+import 'package:demo2/MyDrawer.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  final bool showPerformanceOverlay;
+  final ValueChanged<bool> onShowPerformanceOverlayChanged;
+  MyHomePage(
+      {Key key,
+      this.showPerformanceOverlay,
+      this.onShowPerformanceOverlayChanged})
+      : super(key: key) {
+    assert(onShowPerformanceOverlayChanged != null);
+  }
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -9,6 +19,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
+  bool showPerformanceOverlay;
+  ValueChanged<bool> onShowPerformanceOverlayChanged;
   TabController _tabController;
   @override
   void initState() {
@@ -78,7 +90,6 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "SingleChildScrollView", "path": "/singleChildScrollView"},
     {"title": "CustomScrollView", "path": "/customScrollView"},
     {"title": "NestedScrollView", "path": "/nestedScrollView"},
-
   ];
 
   List<Map> complexWidgets = [
@@ -122,16 +133,17 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "音乐播放", "path": "/audioPlayer"},
     {"title": "录音", "path": "/record"},
     {"title": "微信录音", "path": "/wxrecord"},
+    {"title": "画板", "path": "/draw"},
+    {"title": "折线图", "path": "/discountFigure"},
 
+    // {"title": "地址选择", "path": "/http"},
     // {"title": "推送", "path": "/http"},
-    {"title": "地址选择", "path": "/http"},
     // {"title": "分享", "path": "/http"},
     // {"title": "统计", "path": "/http"},
     // {"title": "第三方登录", "path": "/http"},
     // {"title": "支付", "path": "/http"},
     // {"title": "地图", "path": "/http"},
-    {"title": "绘图", "path": "/http"},
-    {"title": "股票图", "path": "/http"},
+    // {"title": "股票图", "path": "/http"},
   ];
 
   List<Map> develop = [
@@ -149,9 +161,16 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   Widget build(BuildContext context) {
+    showPerformanceOverlay = widget.showPerformanceOverlay;
+    onShowPerformanceOverlayChanged = widget.onShowPerformanceOverlayChanged;
+
     return Scaffold(
+        drawer: MyDrawer(
+            showPerformanceOverlay: showPerformanceOverlay,
+            onShowPerformanceOverlayChanged: onShowPerformanceOverlayChanged),
         appBar: AppBar(
-          title: _tabBarTop(),
+          title: Text(defaultConfig.appName),
+          bottom: _tabBarTop(),
           // leading: Text("更多"),
           // actions: <Widget>[
           //   Padding(
