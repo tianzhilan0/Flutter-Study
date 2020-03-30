@@ -83,12 +83,18 @@ import 'package:demo2/Tools/LCSystemCamera.dart';
 import 'package:demo2/Tools/LCCamera.dart';
 import 'package:demo2/Tools/LCWriteRead.dart';
 import 'package:demo2/Tools/LCSqflite.dart';
+import 'package:demo2/Tools/LCRecord.dart';
 
 //扩展
 import 'package:demo2/Extend/LCRichText.dart';
 import 'package:demo2/Extend/LCGif.dart';
 import 'package:demo2/Extend/LCLocalHtml.dart';
 import 'package:demo2/Extend/LCFont.dart';
+import 'package:demo2/Extend/LCThread.dart';
+import 'package:demo2/Extend/LCVideoPlayer.dart';
+import 'package:demo2/Extend/LCWXRecord.dart';
+import 'package:demo2/Extend/LCAudioPlayer.dart';
+
 
 //实战
 import 'package:demo2/RealDevelop/LCLogin.dart';
@@ -230,6 +236,11 @@ class _MyAppState extends State<MyApp> {
             '/gif': (_) => LCGif(),
             '/localHtml': (_) => LCLocalHtml(),
             '/font': (_) => LCFont(),
+            '/thread': (_) => LCThread(),
+            '/videoPlayer': (_) => LCVideoPlayer(),
+            '/audioPlayer': (_) => LCAudioPlayer(),
+            "/record": (_) => LCRecord(),
+            "/wxrecord": (_) => LCWXRecord(),
 
             //实战
             '/login': (_) => LCLogin(),
