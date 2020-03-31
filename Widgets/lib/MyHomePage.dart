@@ -148,15 +148,15 @@ class _MyHomePageState extends State<MyHomePage>
 
   List<Map> develop = [
     {"title": "登录", "path": "/login"},
-    {"title": "注册", "path": "/login"},
+    {"title": "注册", "path": "/register"},
     {"title": "头条首页", "path": "/login"},
-    {"title": "朋友圈", "path": "/login"},
-    {"title": "简书个人页面", "path": "/login"},
-    {"title": "商品详情", "path": "/login"},
-    {"title": "外卖页面", "path": "/http"},
-    {"title": "购物车", "path": "/login"},
-    {"title": "拖拽GridView", "path": "/http"},
-    {"title": "个人标签", "path": "/http"},
+    // {"title": "朋友圈", "path": "/login"},
+    // {"title": "简书个人页面", "path": "/login"},
+    // {"title": "商品详情", "path": "/login"},
+    // {"title": "外卖页面", "path": "/http"},
+    // {"title": "购物车", "path": "/login"},
+    // {"title": "拖拽GridView", "path": "/http"},
+    // {"title": "个人标签", "path": "/http"},
   ];
 
   @override

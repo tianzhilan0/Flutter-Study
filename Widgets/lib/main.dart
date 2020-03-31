@@ -1,4 +1,5 @@
 import 'package:demo2/AppConfig.dart';
+import 'package:demo2/RealDevelop/LCRegister.dart';
 import 'package:flutter/material.dart';
 import 'package:demo2/MyHomePage.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -134,7 +135,6 @@ class _MyAppState extends State<MyApp> {
               home: MyHomePage(
                 showPerformanceOverlay: _showPerformanceOverlay,
                 onShowPerformanceOverlayChanged: (bool value) {
-                  print("main $value");
                   setState(() {
                     _showPerformanceOverlay = value;
                   });
@@ -236,6 +236,8 @@ class _MyAppState extends State<MyApp> {
 
                 //实战
                 '/login': (_) => LCLogin(),
+                '/register': (_) => LCRegister(),
+                
                 // '/shared_preferences': (_) => LCSharedPreferences(),
                 // '/shared_preferences': (_) => LCSharedPreferences(),
                 // '/shared_preferences': (_) => LCSharedPreferences(),
