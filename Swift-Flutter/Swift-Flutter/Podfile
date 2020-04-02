@@ -1,0 +1,18 @@
+
+
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '10.0'
+# use_frameworks!
+
+#注意路径和文件夹名字正确无误 最后有一个反斜杠
+flutter_application_path = '/Users/lc/Desktop/Flutter-Study/Swift-Flutter/flutter_module/'
+load File.join(flutter_application_path, 'YYFramework', 'Flutter', 'podhelper.rb')
+
+  target 'Swift-Flutter' do
+pod 'SnapKit'
+pod 'MJRefresh'
+pod 'Kingfisher'
+
+  install_all_flutter_pods(flutter_application_path)
+  
+end
