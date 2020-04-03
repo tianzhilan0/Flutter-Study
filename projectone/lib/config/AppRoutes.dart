@@ -1,13 +1,20 @@
+import 'package:first/pages/base/MyHomePage.dart';
+import 'package:first/pages/login/LCForgotPasswordPage.dart';
 import 'package:first/pages/login/LCLoginPage.dart';
+import 'package:first/pages/login/LCRegisterPage.dart';
 import 'package:flutter/material.dart';
-
-// Map<String, WidgetBuilder> appRoutes = {
-//   '/': (_) => LCLoginPage(),
-// };
 
 //路由配置
 final routes = {
-  '/': (context, {arguments}) => LCLoginPage(),
+  '/': (context, {arguments}) => MyHomePage(),
+
+  //登录模块
+  '/login': (context, {arguments}) => LCLoginPage(),
+  '/register': (context, {arguments}) => LCRegisterPage(arguments: arguments),
+  '/forgotPassword': (context, {arguments}) => LCForgotPasswordPage(arguments: arguments),
+
+  
+
 
   // '/newsDeatil':(context,{arguments}) => LCNewDetailPage(arguments: arguments,)
 };

@@ -8,10 +8,27 @@ class LCHomePage extends StatefulWidget {
 }
 
 class _LCHomePageState extends State<LCHomePage> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    print("init  LCHomePage");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print("dispose  LCHomePage");
+
+  }
   @override
   Widget build(BuildContext context) {
-    return Container(
-       child: Text("data"),
+    return Scaffold(
+      appBar: AppBar(title: Text("首页")),
+      body: ListView(
+
+      )
     );
   }
 }

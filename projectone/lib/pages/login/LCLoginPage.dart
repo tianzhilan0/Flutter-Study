@@ -1,7 +1,10 @@
+import 'package:first/config/LCStorageConfig.dart';
+import 'package:first/provider/LoginProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:first/config/AppConfig.dart';
+import 'package:provider/provider.dart';
 
 class LCLoginPage extends StatefulWidget {
   LCLoginPage({Key key}) : super(key: key);
@@ -208,11 +211,15 @@ class _LCLoginPageState extends State<LCLoginPage> {
               if (_formKey.currentState.validate()) {
                 //只有输入通过验证，才会执行这里
                 _formKey.currentState.save();
-                //todo 登录操作
+                // 登录操作
                 EasyLoading.show(status: 'loading...');
-                // EasyLoading.dismiss();
-                // EasyLoading.show(status: 'loading...');
                 print("$_username + $_password");
+
+                Future.delayed(Duration(seconds: 3)).then((_) {
+                  EasyLoading.dismiss();
+                  LCStorageConfig().setValue(AppConfig.sp_isLogin, "1");
+                  Provider.of<LoginProvider>(context, listen: false).login();
+                });
               }
             },
           ));
@@ -236,7 +243,7 @@ class _LCLoginPageState extends State<LCLoginPage> {
               ),
               //忘记密码按钮，点击执行事件
               onPressed: () {
-                Navigator.of(context).pushNamed("/");
+                // Navigator.of(context).pushNamed("/register");
               },
             ),
             FlatButton(
@@ -249,7 +256,7 @@ class _LCLoginPageState extends State<LCLoginPage> {
               ),
               //点击快速注册、执行事件
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed("/register",arguments: {"iphone":""});
               },
             )
           ],

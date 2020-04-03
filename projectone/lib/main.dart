@@ -1,11 +1,11 @@
 import 'dart:io';
 
+import 'package:first/config/LCStorageConfig.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'MyApp.dart';
 import 'config/AppLoading.dart';
-import 'config/LCStorageConfig.dart';
 
 void main() async {
   // 确保初始化
@@ -13,7 +13,6 @@ void main() async {
   // Loading配置
   appLoadingConfig();
 
-    /// 配置初始化
   await LCStorageConfig().init();
 
   runApp(MyApp());

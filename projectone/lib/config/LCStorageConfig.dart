@@ -1,6 +1,5 @@
+import 'package:first/config/AppConfig.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'AppConfig.dart';
 
 class LCStorageConfig {
   /// app全局配置
@@ -14,7 +13,9 @@ class LCStorageConfig {
 
   init() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setString(AppConfig.sp_isLogin, "1");
+    if (!sp.getKeys().contains(AppConfig.sp_isLogin)) {
+      setValue(AppConfig.sp_isLogin, "0");
+    }
   }
 
   setValue(String key, String value) async {
@@ -24,7 +25,7 @@ class LCStorageConfig {
 
   Future<String> getValue(String key) async {
     SharedPreferences sp = await SharedPreferences.getInstance();
-    String userName = sp.getString(key);
-    return userName;
+    String value = sp.getString(key);
+    return value;
   }
 }
