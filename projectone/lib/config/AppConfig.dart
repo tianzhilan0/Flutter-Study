@@ -9,6 +9,7 @@ class AppConfig {
 
   ///响应超时时间为7秒
   static const int receiveTimeOut = 7 * 1000;
-
+  
+  //本地存储Key
   static const String sp_isLogin = "sp_isLogin";
 }

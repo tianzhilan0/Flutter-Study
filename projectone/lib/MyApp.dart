@@ -17,7 +17,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   String _isLogin;
   @override
   void initState() {
@@ -25,7 +24,7 @@ class _MyAppState extends State<MyApp> {
     _validateLogin();
   }
 
-    void _validateLogin() async {
+  void _validateLogin() async {
     String isLogin = await LCStorageConfig().getValue(AppConfig.sp_isLogin);
     print("当前LoginState == $isLogin");
     setState(() {
@@ -37,6 +36,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return FlutterEasyLoading(
         child: MultiProvider(
+
             /// 注意MultiProvider的用法！
             providers: [
           ChangeNotifierProvider(create: (_) => LoginProvider(_isLogin)),
@@ -50,7 +50,9 @@ class _MyAppState extends State<MyApp> {
               // ],
               supportedLocales: appConfig.supportedLocales,
               showPerformanceOverlay: appConfig.showPerformanceOverlay,
-              home: MyHomePage(isLogin: _isLogin,),
+              home: MyHomePage(
+                isLogin: _isLogin,
+              ),
               initialRoute: "/",
               onGenerateRoute: onGenerateRoute,
               // routes: appRoutes
