@@ -1,3 +1,4 @@
+import 'package:first/pages/base/LCWebView.dart';
 import 'package:first/pages/base/MyHomePage.dart';
 import 'package:first/pages/login/LCForgotPasswordPage.dart';
 import 'package:first/pages/login/LCLoginPage.dart';
@@ -13,7 +14,8 @@ final routes = {
   '/register': (context, {arguments}) => LCRegisterPage(arguments: arguments),
   '/forgotPassword': (context, {arguments}) => LCForgotPasswordPage(arguments: arguments),
 
-  
+  '/webView': (context, {arguments}) => LCWebView(arguments: arguments),
+
 
 
   // '/newsDeatil':(context,{arguments}) => LCNewDetailPage(arguments: arguments,)

@@ -75,7 +75,6 @@ class _LCTextFieldState extends State<LCTextField> {
     });
     _seconds = widget.countdown;
     _isAvailableGetVCode = widget.isAvailableVCode;
-    print("_isAvailableGetVCode == $_isAvailableGetVCode");
   }
 
   starTimer(){

@@ -135,13 +135,14 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
                 style: Theme.of(context).textTheme.body1,
                 children: <TextSpan>[
                   TextSpan(
-                      text: '《京东用户注册协议》',
-                      style: TextStyle(
-                  color: Colors.red,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15,
-                  decoration: TextDecoration.underline,
-                ),)
+                    text: '《京东用户注册协议》',
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                      decoration: TextDecoration.underline,
+                    ),
+                  )
                 ])),
             onTap: registerPolicy,
           )
@@ -180,31 +181,29 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
           ));
     }
 
-    Widget fooderArea(){
+    Widget fooderArea() {
       return Container(
-        margin: EdgeInsets.only(top:20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Icon(Icons.phone),
-            InkWell(
+        margin: EdgeInsets.only(top: 20),
+        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Icon(Icons.phone),
+          InkWell(
             child: Text.rich(TextSpan(
                 text: "遇到问题？请",
                 style: Theme.of(context).textTheme.body1,
                 children: <TextSpan>[
                   TextSpan(
-                      text: '联系客服',
-                      style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15,
-                  decoration: TextDecoration.underline,
-                ),)
+                    text: '联系客服',
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                      decoration: TextDecoration.underline,
+                    ),
+                  )
                 ])),
             onTap: registerPolicy,
           )
-          ]
-        ),
+        ]),
       );
     }
 
@@ -220,7 +219,12 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
       body: GestureDetector(
           onTap: hiddenKeyboard,
           child: ListView(
-            children: <Widget>[inputArea(), agreeArea(), registerArea(), fooderArea()],
+            children: <Widget>[
+              inputArea(),
+              agreeArea(),
+              registerArea(),
+              fooderArea()
+            ],
           )),
     );
   }
@@ -248,11 +252,15 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
       // throw;
     }
   }
+
   //注册
   register() {}
 
   //注册协议
-  registerPolicy(){
-
+  registerPolicy() {
+    Navigator.of(context).pushNamed("/webView", arguments: {
+      "title": "注册协议",
+      "webURL": "https://in.m.jd.com/help/app/register_info.html"
+    });
   }
 }

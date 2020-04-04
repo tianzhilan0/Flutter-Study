@@ -9,6 +9,8 @@ class LoginProvider with ChangeNotifier {
 
   void login() {
     _isLogin = "1";
+
+    
     notifyListeners();
   }
 

@@ -92,7 +92,7 @@ class _LCLoginPageState extends State<LCLoginPage> {
                   isInputPwd: true,
                   rightTitle: "忘记密码",
                   rightTitleWidth: 80,
-                  rightAction: (){},
+                  rightAction: () {},
                 )),
           ]));
     }
@@ -283,5 +283,10 @@ class _LCLoginPageState extends State<LCLoginPage> {
   //QQ
   void qqLogin() {}
   //隐私政策
-  void privacyPolicy() {}
+  void privacyPolicy() {
+    Navigator.of(context).pushNamed("/webView", arguments: {
+      "title": "隐私政策",
+      "webURL": "https://in.m.jd.com/help/app/private_policy.html"
+    });
+  }
 }
