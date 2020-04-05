@@ -1,18 +1,28 @@
 class LoginModel {
-  String backGround;
-  String title;
-  String subtitle;
+  int uid;
+  String name;
+  String phone;
+  String email;
+  int age;
+  int sex;
 
-  LoginModel(
-      {this.backGround,
-      this.title,
-      this.subtitle,});
+  LoginModel({
+    this.uid,
+    this.name,
+    this.phone,
+    this.email,
+    this.age,
+    this.sex,
+  });
 
   factory LoginModel.fromJson(Map<String, dynamic> json) {
     return LoginModel(
-      backGround: json['backGround'],
-      title: json['title'],
-      subtitle: json['subtitle'],
+      uid: json['uid'],
+      name: json['name'],
+      phone: json['phone'],
+      email: json['email'],
+      age: json['age'],
+      sex: json['sex'],
     );
   }
 }

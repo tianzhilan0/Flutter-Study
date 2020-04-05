@@ -36,9 +36,6 @@ class LCWebRequstManager {
   Future request<T>(LCMethod method, String api,
       {Map<String, dynamic> params, Function(T) success, Function(LCErrorEntity) error}) async {
     try {
-      print("==============params==============");
-      print(params);
-
       FormData data = FormData.fromMap(params);
       Response response = await _client.request(
         api,
@@ -46,7 +43,6 @@ class LCWebRequstManager {
         // queryParameters: params,
         options: Options(method: LCMethodValues[method]),
       );
-      print("===============queryParameters=============");
 
       if (response != null) {
         

@@ -22,7 +22,7 @@ class LCBaseListEntity<T> {
     }
     return LCBaseListEntity(
       code: json["code"],
-      message: json["msg"],
+      message: json["message"],
       data: mData,
     );
   }
@@ -37,7 +37,7 @@ class LCBaseEntity<T> {
   factory LCBaseEntity.fromJson(json) {
     return LCBaseEntity(
       code: json["code"],
-      message: json["msg"],
+      message: json["message"],
       // data值需要经过工厂转换为我们传进来的类型
       data: LCEntityFactory.generateOBJ<T>(json["data"]),
     );
@@ -49,7 +49,7 @@ class LCEntityFactory {
     if (json == null) {
       return null;
     } else {
-      if (T.toString() == "HomeModel") {
+      if (T.toString() == "LoginModel") {
         return LoginModel.fromJson(json) as T;
       } 
       // else if (T.toString() == "InvestModel") {

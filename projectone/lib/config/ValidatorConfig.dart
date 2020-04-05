@@ -12,12 +12,32 @@ class ValidatorConfig {
     return "";
   }
 
-  /// 校验密码
+  /// 校验验证码
+  static String checkVCode(value) {
+    if (value.isEmpty) {
+      return '验证码不能为空';
+    } else if (value.trim().length != 6) {
+      return '请输入六位验证码';
+    }
+    return "";
+  }
+
+    /// 校验密码
   static String checkPassWord(value) {
     if (value.isEmpty) {
       return '密码不能为空';
-    } else if (value.trim().length < 6 || value.trim().length > 18) {
+    } else if (value.trim().length < 6 || value.trim().length > 20) {
       return '密码长度不正确';
+    }
+    return "";
+  }
+
+    /// 校验密码
+  static String checkRePassWord(value) {
+    if (value.isEmpty) {
+      return '确认密码不能为空';
+    } else if (value.trim().length < 6 || value.trim().length > 20) {
+      return '确认密码长度不正确';
     }
     return "";
   }

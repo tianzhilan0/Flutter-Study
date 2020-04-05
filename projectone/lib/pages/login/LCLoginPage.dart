@@ -1,4 +1,3 @@
-
 import 'package:first/config/LCStorageConfig.dart';
 import 'package:first/config/RequestApi.dart';
 import 'package:first/config/ValidatorConfig.dart';
@@ -28,14 +27,6 @@ class _LCLoginPageState extends State<LCLoginPage> {
   //用户名输入框控制器
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-
-  var _password = '';
-  var _phone = '';
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void dispose() {
@@ -251,38 +242,37 @@ class _LCLoginPageState extends State<LCLoginPage> {
   }
 
   //登录
-  login() async {
+  login() {
     hiddenKeyboard();
     String phoneResult = ValidatorConfig.checkMobile(_phoneController.text);
-    if (phoneResult.length == 0) {
-      String passwordResult =
-          ValidatorConfig.checkPassWord(_passwordController.text);
-      if (passwordResult.length == 0) {
-        print("${_phoneController.text} + ${_passwordController.text}");
-        // EasyLoading.show(status: 'loading...');
-
-        await Future.delayed(Duration(seconds: 2));
-        Map<String, dynamic> params = {
-          "username": _phoneController.text,
-          "password": _passwordController.text
-        };
-        
-        LCWebRequstManager().request<LoginModel>(
-            LCMethod.POST, RequestApi.login, params: params, success: (result) {
-          print("========> 结束 <========");
-          Provider.of<LoginProvider>(context, listen: false).login();
-          LCStorageConfig().setValue(AppConfig.sp_isLogin, "1");
-          EasyLoading.dismiss();
-        }, error: (emsg) {
-          // EasyLoading.dismiss();
-          EasyLoading.showToast("${emsg.code} - " + emsg.message);
-        });
-      } else {
-        EasyLoading.showToast(passwordResult);
-      }
-    } else {
+    if (phoneResult.length != 0) {
       EasyLoading.showToast(phoneResult);
+      return;
     }
+    String passwordResult =
+        ValidatorConfig.checkPassWord(_passwordController.text);
+    if (passwordResult.length != 0) {
+      EasyLoading.showToast(passwordResult);
+      return;
+    }
+
+    print("${_phoneController.text} + ${_passwordController.text}");
+    EasyLoading.show(status: 'loading...');
+
+    Map<String, dynamic> params = {
+      "username": _phoneController.text,
+      "password": _passwordController.text
+    };
+
+    LCWebRequstManager().request<LoginModel>(LCMethod.POST, RequestApi.login,
+        params: params, success: (result) {
+      Provider.of<LoginProvider>(context, listen: false).login();
+      LCStorageConfig().setValue(AppConfig.sp_isLogin, "1");
+      EasyLoading.dismiss();
+    }, error: (emsg) {
+      // EasyLoading.dismiss();
+      EasyLoading.showToast(emsg.message);
+    });
   }
 
   //忘记密码

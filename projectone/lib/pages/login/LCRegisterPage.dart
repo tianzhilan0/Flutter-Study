@@ -1,4 +1,8 @@
+import 'package:first/config/RequestApi.dart';
 import 'package:first/config/ValidatorConfig.dart';
+import 'package:first/model/LoginModel.dart';
+import 'package:first/tools/webserve/LCMethod.dart';
+import 'package:first/tools/webserve/LCWebRequstManager.dart';
 import 'package:first/widgets/base/LCTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -15,7 +19,7 @@ class LCRegisterPage extends StatefulWidget {
 class _LCRegisterPageState extends State<LCRegisterPage> {
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _vCodeController = TextEditingController();
-  TextEditingController _paswordController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   TextEditingController _rePasswordController = TextEditingController();
 
   FocusNode _focusNodePhone = FocusNode();
@@ -36,7 +40,7 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
     //定时器清除
     _phoneController.clear();
     _vCodeController.clear();
-    _paswordController.clear();
+    _passwordController.clear();
     _rePasswordController.clear();
     super.dispose();
   }
@@ -89,7 +93,7 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
                           width: 0.6, color: Theme.of(context).dividerColor))),
               child: LCTextField(
                 focusNode: _focusNodePassword,
-                controller: _paswordController,
+                controller: _passwordController,
                 placeHolder: '请设置密码（6-20位）',
                 isInputPwd: true,
                 beforeTitle: "密码：",
@@ -254,7 +258,63 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
   }
 
   //注册
-  register() {}
+  register() {
+    hiddenKeyboard();
+    String phoneResult = ValidatorConfig.checkMobile(_phoneController.text);
+    if (phoneResult.length != 0) {
+      EasyLoading.showToast(phoneResult);
+      return;
+    }
+    String vcodeResult = ValidatorConfig.checkVCode(_vCodeController.text);
+    if (vcodeResult.length != 0) {
+      EasyLoading.showToast(vcodeResult);
+      return;
+    }
+
+    String passwordResult =
+        ValidatorConfig.checkPassWord(_passwordController.text);
+    if (passwordResult.length != 0) {
+      EasyLoading.showToast(passwordResult);
+      return;
+    }
+
+    String repasswordResult =
+        ValidatorConfig.checkRePassWord(_rePasswordController.text);
+    if (repasswordResult.length != 0) {
+      EasyLoading.showToast(repasswordResult);
+      return;
+    }
+
+    if (_passwordController.text != _rePasswordController.text) {
+      EasyLoading.showToast("两次密码不一致");
+      return;
+    }
+
+    if (isAgree != 1) {
+      EasyLoading.showToast("请阅读注册协议");
+      return;
+    }
+
+    EasyLoading.show(status: 'loading...');
+    Map<String, dynamic> params = {
+      "username": _phoneController.text,
+      "vcode": _vCodeController.text,
+      "password": _passwordController.text,
+      "repassword": _rePasswordController.text
+    };
+
+    print(params);
+    LCWebRequstManager().request<LoginModel>(LCMethod.POST, RequestApi.register,
+        params: params, success: (result) {
+      EasyLoading.showToast("注册成功");
+      Future.delayed(Duration(seconds: 2)).then((_) {
+        Navigator.of(context).pop();
+      });
+    }, error: (emsg) {
+      // EasyLoading.dismiss();
+      EasyLoading.showToast(emsg.message);
+    });
+  }
 
   //注册协议
   registerPolicy() {
@@ -265,8 +325,5 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
   }
 
   //联系客服
-  contactService(){
-
-  }
-
+  contactService() {}
 }
