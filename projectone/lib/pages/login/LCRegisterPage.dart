@@ -201,7 +201,7 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
                     ),
                   )
                 ])),
-            onTap: registerPolicy,
+            onTap: contactService,
           )
         ]),
       );
@@ -263,4 +263,10 @@ class _LCRegisterPageState extends State<LCRegisterPage> {
       "webURL": "https://in.m.jd.com/help/app/register_info.html"
     });
   }
+
+  //联系客服
+  contactService(){
+
+  }
+
 }

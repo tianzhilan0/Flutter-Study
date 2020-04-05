@@ -1,6 +1,11 @@
+
 import 'package:first/config/LCStorageConfig.dart';
+import 'package:first/config/RequestApi.dart';
 import 'package:first/config/ValidatorConfig.dart';
+import 'package:first/model/LoginModel.dart';
 import 'package:first/provider/LoginProvider.dart';
+import 'package:first/tools/webserve/LCMethod.dart';
+import 'package:first/tools/webserve/LCWebRequstManager.dart';
 import 'package:first/widgets/base/LCTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -92,7 +97,7 @@ class _LCLoginPageState extends State<LCLoginPage> {
                   isInputPwd: true,
                   rightTitle: "忘记密码",
                   rightTitleWidth: 80,
-                  rightAction: () {},
+                  rightAction: forgotPassword,
                 )),
           ]));
     }
@@ -125,7 +130,9 @@ class _LCLoginPageState extends State<LCLoginPage> {
                   style: Theme.of(context).textTheme.title,
                 )),
 
-            onPressed: login,
+            onPressed: () {
+              login();
+            },
           ));
     }
 
@@ -244,17 +251,38 @@ class _LCLoginPageState extends State<LCLoginPage> {
   }
 
   //登录
-  void login() {
+  login() async {
     hiddenKeyboard();
-    // 登录操作
-    EasyLoading.show(status: 'loading...');
-    print("$_phone + $_password");
+    String phoneResult = ValidatorConfig.checkMobile(_phoneController.text);
+    if (phoneResult.length == 0) {
+      String passwordResult =
+          ValidatorConfig.checkPassWord(_passwordController.text);
+      if (passwordResult.length == 0) {
+        print("${_phoneController.text} + ${_passwordController.text}");
+        // EasyLoading.show(status: 'loading...');
 
-    Future.delayed(Duration(seconds: 3)).then((_) {
-      EasyLoading.dismiss();
-      LCStorageConfig().setValue(AppConfig.sp_isLogin, "1");
-      Provider.of<LoginProvider>(context, listen: false).login();
-    });
+        await Future.delayed(Duration(seconds: 2));
+        Map<String, dynamic> params = {
+          "username": _phoneController.text,
+          "password": _passwordController.text
+        };
+        
+        LCWebRequstManager().request<LoginModel>(
+            LCMethod.POST, RequestApi.login, params: params, success: (result) {
+          print("========> 结束 <========");
+          Provider.of<LoginProvider>(context, listen: false).login();
+          LCStorageConfig().setValue(AppConfig.sp_isLogin, "1");
+          EasyLoading.dismiss();
+        }, error: (emsg) {
+          // EasyLoading.dismiss();
+          EasyLoading.showToast("${emsg.code} - " + emsg.message);
+        });
+      } else {
+        EasyLoading.showToast(passwordResult);
+      }
+    } else {
+      EasyLoading.showToast(phoneResult);
+    }
   }
 
   //忘记密码

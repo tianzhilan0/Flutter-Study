@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 
 class LoginProvider with ChangeNotifier {
-
   String _isLogin = "0";
 
   // 初始化时赋值
   LoginProvider(this._isLogin);
 
   void login() {
-    _isLogin = "1";
-
-    
-    notifyListeners();
+     _isLogin = "1";
+      notifyListeners();
   }
 
   void logout() {

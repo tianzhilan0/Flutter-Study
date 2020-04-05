@@ -204,7 +204,7 @@ class _LCTextFieldState extends State<LCTextField> {
                   width: widget.rightTitleWidth,
                   child: FlatButton(
                       padding: EdgeInsets.only(left: 5, right: 5),
-                      onPressed: () {},
+                      onPressed: widget.rightAction,
                       child: Text(
                         widget.rightTitle,
                         style: Theme.of(context).textTheme.body1,
