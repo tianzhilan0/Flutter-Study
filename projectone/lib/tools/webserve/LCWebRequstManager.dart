@@ -40,7 +40,6 @@ class LCWebRequstManager {
       Response response = await _client.request(
         api,
         data: data,
-        // queryParameters: params,
         options: Options(method: LCMethodValues[method]),
       );
 

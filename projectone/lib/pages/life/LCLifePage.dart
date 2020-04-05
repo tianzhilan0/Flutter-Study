@@ -1,3 +1,6 @@
+import 'package:first/widgets/life/LifeFooter.dart';
+import 'package:first/widgets/life/LifeGoods.dart';
+import 'package:first/widgets/life/LifeHeader.dart';
 import 'package:flutter/material.dart';
 
 class LCLifePage extends StatefulWidget {
@@ -21,7 +24,13 @@ class _LCLifePageState extends State<LCLifePage> {
     return Scaffold(
       appBar: AppBar(title: Text("生活")),
       body: ListView(
-        
+        children: <Widget>[
+                    LifeHeader(),
+          SizedBox(height: 20),
+          LifeGoods(),
+          SizedBox(height: 20),
+          LifeFooter(),
+        ],
       )
     );
   }

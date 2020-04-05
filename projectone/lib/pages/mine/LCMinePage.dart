@@ -1,6 +1,10 @@
 import 'package:first/config/AppConfig.dart';
 import 'package:first/config/LCStorageConfig.dart';
 import 'package:first/provider/LoginProvider.dart';
+import 'package:first/widgets/mine/MineHeader.dart';
+import 'package:first/widgets/mine/MineMyLife.dart';
+import 'package:first/widgets/mine/MineMyMoney.dart';
+import 'package:first/widgets/mine/MineSafe.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +28,12 @@ class _LCMinePageState extends State<LCMinePage> {
         appBar: AppBar(title: Text("我的")),
         body: ListView(
           children: <Widget>[
+            MineHeader(),
+            MineMyMoney(),
+            MineMyLife(),
+            MineSafe(),
+            MineSafe(),
+            SizedBox(height: 20),
             SizedBox(height: 100),
             Container(
               height: 50,

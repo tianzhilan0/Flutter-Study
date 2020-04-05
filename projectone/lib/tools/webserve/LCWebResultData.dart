@@ -3,6 +3,7 @@
 // import 'package:nonghang/model/HomeModel.dart';
 // import 'package:nonghang/model/InvestModel.dart';
 
+import 'package:first/model/HomeModel.dart';
 import 'package:first/model/LoginModel.dart';
 
 class LCBaseListEntity<T> {
@@ -52,11 +53,13 @@ class LCEntityFactory {
       if (T.toString() == "LoginModel") {
         return LoginModel.fromJson(json) as T;
       } 
-      // else if (T.toString() == "InvestModel") {
-      //   return InvestModel.fromJson(json) as T;
-      // } else {
-      //   return null;
-      // }
+      else if (T.toString() == "HomeModel") {
+        return HomeModel.fromJson(json) as T;
+      }else if (T.toString() == "InvestModel") {
+        // return InvestModel.fromJson(json) as T;
+      } else {
+        return null;
+      }
       return json as T;
     }
   }

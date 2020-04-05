@@ -84,12 +84,12 @@ MaterialAppConfig get appConfig {
           //text 默认设置
           body1: TextStyle(
             color: Colors.black54,
-            fontSize: 16,
+            fontSize: 15,
             fontWeight: FontWeight.w400
           ),
           body2: TextStyle(
             color: Colors.lightBlue,
-            fontSize: 16,
+            fontSize: 15,
             fontWeight: FontWeight.w400
           ),
         )
