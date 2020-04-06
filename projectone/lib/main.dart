@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:first/config/AppConfig.dart';
 import 'package:first/config/LCStorageConfig.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,8 +15,9 @@ void main() async {
   appLoadingConfig();
 
   await LCStorageConfig().init();
+  String isLogin = await LCStorageConfig().getValue(AppConfig.sp_isLogin);
 
-  runApp(MyApp());
+  runApp(MyApp(isLogin: isLogin,));
 
   /// 自定义报错页面
   ErrorWidget.builder = (FlutterErrorDetails flutterErrorDetails) {

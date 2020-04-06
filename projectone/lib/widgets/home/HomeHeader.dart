@@ -41,7 +41,7 @@ class _HomeHeaderState extends State<HomeHeader> {
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(40, 40, 0, 0),
+            padding: EdgeInsets.fromLTRB(40, 84, 0, 0),
             child: Text(
               model.title,
               style: TextStyle(fontSize: 20, color: Colors.white),

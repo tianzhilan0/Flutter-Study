@@ -2,6 +2,7 @@ import 'package:first/config/RequestApi.dart';
 import 'package:first/model/HomeModel.dart';
 import 'package:first/tools/webserve/LCMethod.dart';
 import 'package:first/tools/webserve/LCWebRequstManager.dart';
+import 'package:first/widgets/base/LCAppBar.dart';
 import 'package:first/widgets/base/LCLoading.dart';
 import 'package:first/widgets/home/HomeHeader.dart';
 import 'package:first/widgets/home/HomeHotActivity.dart';
@@ -10,6 +11,7 @@ import 'package:first/widgets/home/HomeRecommendedActivity.dart';
 import 'package:first/widgets/home/HomeSwiper.dart';
 import 'package:first/widgets/home/HomeTips.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class LCHomePage extends StatefulWidget {
   LCHomePage({Key key}) : super(key: key);
@@ -19,16 +21,32 @@ class LCHomePage extends StatefulWidget {
 }
 
 class _LCHomePageState extends State<LCHomePage> {
-  // RefreshController _refresh = RefreshController(initialRefresh: false);
+  EasyRefreshController _controller = EasyRefreshController();
+  ScrollController _scrollController = ScrollController();
   HomeModel model = HomeModel();
   bool isRequest = false;
+  double _appBarAlpha = 0.0;
 
   @override
   void initState() {
     super.initState();
     isRequest = true;
     print("init  LCHomePage");
-    getData();
+    getData(true);
+    _scrollController.addListener(() {
+      // print(_scrollController.offset);
+      if (_scrollController.offset >= 0 &&
+          _scrollController.offset <=
+              MediaQuery.of(context).size.width * 3 / 5) {
+        // print("appBarAlpha == $_appBarAlpha");
+        double alpha = _scrollController.offset /
+            (MediaQuery.of(context).size.width * 3 / 5);
+        String number = alpha.toStringAsFixed(2);
+        setState(() {
+          _appBarAlpha = double.parse(number);
+        });
+      }
+    });
   }
 
   @override
@@ -40,23 +58,34 @@ class _LCHomePageState extends State<LCHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("首页")),
-        body: isRequest
-            ? LCLoading()
-            : ListView(
-          children: <Widget>[
-            HomeHeader(model: model),
-            HomeQuickItems(model: model),
-            HomeTips(model: model),
-            HomeSwiper(model: model),
-            HomeHotActivity(model: model),
-            HomeRecommendedActivity(model: model),
-          ],
-        ));
+      body: isRequest ? LCLoading(): Stack(children: [
+        ListView(controller: _scrollController, children: <Widget>[
+          HomeHeader(model: model),
+          HomeQuickItems(model: model),
+          HomeTips(model: model),
+          HomeSwiper(model: model),
+          HomeHotActivity(model: model),
+          HomeRecommendedActivity(model: model),
+          Container(height: 200, color: Colors.red),
+          Container(height: 200, color: Colors.orange),
+          Container(height: 200, color: Colors.brown),
+          Container(height: 200, color: Colors.blue),
+          Container(height: 200, color: Colors.red),
+          Container(height: 200, color: Colors.orange),
+          Container(height: 200, color: Colors.brown),
+          Container(height: 200, color: Colors.blue)
+        ]),
+        Positioned(
+            child: LCAppBar(
+          appBarAlpha: _appBarAlpha,
+          leftAction: clickLeftAction,
+        )),
+      ]),
+    );
   }
 
   // 网络请求
-  getData() async {
+  void getData(bool isRefresh) async {
     await Future.delayed(Duration(seconds: 1));
 
     LCWebRequstManager().request<HomeModel>(LCMethod.GET, RequestApi.newslist,
@@ -66,9 +95,18 @@ class _LCHomePageState extends State<LCHomePage> {
         isRequest = false;
         model = result;
       });
-      // _refresh.refreshCompleted();
+      if (isRefresh) {
+        _controller.finishRefresh(success: true);
+      } else {
+        _controller.finishLoad(success: true, noMore: true);
+      }
     }, error: (emsg) {
       // _refresh.refreshCompleted();
     });
+  }
+
+  //左侧按钮
+  void clickLeftAction() {
+    print("左侧按钮");
   }
 }

@@ -10,7 +10,8 @@ import 'config/AppRoutes.dart';
 import 'pages/base/MyHomePage.dart';
 
 class MyApp extends StatefulWidget {
-  MyApp({Key key}) : super(key: key);
+  final String isLogin;
+  MyApp({Key key, this.isLogin}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -21,15 +22,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    _validateLogin();
-  }
-
-  void _validateLogin() async {
-    String isLogin = await LCStorageConfig().getValue(AppConfig.sp_isLogin);
-    print("当前LoginState == $isLogin");
-    setState(() {
-      _isLogin = isLogin;
-    });
+    _isLogin = widget.isLogin;
   }
 
   @override

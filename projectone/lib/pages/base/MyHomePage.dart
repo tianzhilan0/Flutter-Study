@@ -13,20 +13,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // String _isLogin = "0";
+  String _isLogin;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   listenLoginState();
-  //   _isLogin = widget.isLogin;
-  // }
+  @override
+  void initState() {
+    super.initState();
+    _isLogin = widget.isLogin;
+  }
 
   @override
   Widget build(BuildContext context) {
     LoginProvider loginProvider =  Provider.of<LoginProvider>(context);
-
-    if (loginProvider.isLogin == "1") {
+    loginProvider.addListener((){
+      setState(() {
+        _isLogin = loginProvider.isLogin;
+      });
+    });
+    print("isLogin == "+ _isLogin);
+    if (_isLogin == "1") {
       return LCTabbar();
     } else {
       return LCLoginPage();
