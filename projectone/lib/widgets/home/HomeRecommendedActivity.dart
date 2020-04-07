@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 class HomeRecommendedActivity extends StatefulWidget {
   final HomeModel model;
-  HomeRecommendedActivity({Key key,this.model}) : super(key: key);
+  HomeRecommendedActivity({Key key, this.model}) : super(key: key);
 
   @override
-  _HomeRecommendedActivityState createState() => _HomeRecommendedActivityState();
+  _HomeRecommendedActivityState createState() =>
+      _HomeRecommendedActivityState();
 }
 
 class _HomeRecommendedActivityState extends State<HomeRecommendedActivity> {
@@ -16,9 +17,9 @@ class _HomeRecommendedActivityState extends State<HomeRecommendedActivity> {
     super.initState();
     model = widget.model;
   }
+
   @override
   Widget build(BuildContext context) {
-
     Widget recommendItem(item) {
       return Row(
         children: <Widget>[
@@ -58,31 +59,32 @@ class _HomeRecommendedActivityState extends State<HomeRecommendedActivity> {
       );
     }
 
-            List<Widget> items = List();
-        for(int i = 0; i<model.reActivity.length;i++){
-            
-            items.add(Column(
-              children: <Widget>[
-                recommendItem(model.reActivity[i]),
-                i != model.reActivity.length-1 ? Divider(color: Colors.black38, indent: 20):Container()
-              ],
-            ));
-        }
-
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    List<Widget> items = List();
+    for (int i = 0; i < model.reActivity.length; i++) {
+      items.add(Column(
         children: <Widget>[
-          Padding(
-              padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
-              child: Text(
-                "为你推荐",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-              )),
-          Column(
-            children: items
-          ),
-          SizedBox(height: 20),
+          recommendItem(model.reActivity[i]),
+          i != model.reActivity.length - 1
+              ? Divider(color: Colors.black38, indent: 20)
+              : Container()
         ],
-      );
+      ));
+    }
+
+    return Container(
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+                padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
+                child: Text(
+                  "为你推荐",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                )),
+            Column(children: items),
+            SizedBox(height: 20),
+          ],
+        ));
   }
 }

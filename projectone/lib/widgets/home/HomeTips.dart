@@ -19,7 +19,9 @@ class _HomeTipsState extends State<HomeTips> {
   }
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Container(
+      color: Colors.white,
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -60,6 +62,6 @@ class _HomeTipsState extends State<HomeTips> {
           ]),
           Divider(color: Colors.black38),
         ],
-      );
+      ));
   }
 }

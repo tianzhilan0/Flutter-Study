@@ -35,6 +35,7 @@ class _HomeQuickItemsState extends State<HomeQuickItems> {
     }).toList();
 
     return Container(
+      color: Colors.white,
       child: Column(children: [
         Padding(
           padding: EdgeInsets.fromLTRB(0, 0, 10, 0),

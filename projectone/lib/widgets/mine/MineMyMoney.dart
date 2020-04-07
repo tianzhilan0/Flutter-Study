@@ -14,18 +14,13 @@ class _MineMyMoneyState extends State<MineMyMoney> {
     return Container(
       margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
       decoration: BoxDecoration(
-              color: Colors.white,
-
-        borderRadius: BorderRadius.all(Radius.circular(10))
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(10))),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(children: [
           Expanded(
               flex: 1,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                   // mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
@@ -33,7 +28,9 @@ class _MineMyMoneyState extends State<MineMyMoney> {
                       child: Text(
                         "我的资产",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w600),
+                            color: Colors.black87,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600),
                       ),
                     ),
                     Padding(
@@ -63,18 +60,29 @@ class _MineMyMoneyState extends State<MineMyMoney> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            FlatButton.icon(onPressed: (){}, icon: Icon(Icons.attach_money), label: Text("我的负债")),
+            FlatButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.attach_money),
+                label: Text("我的负债",style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black54),)),
             Container(
               // color: Colors.orange,
-                width: 1,
-                height: 40,
-                child: VerticalDivider(),
-              ),
-                        FlatButton.icon(onPressed: (){}, icon: Icon(Icons.money_off), label: Text("月度账单"))
-
+              width: 1,
+              height: 40,
+              child: VerticalDivider(),
+            ),
+            FlatButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.money_off),
+                label: Text("月度账单",style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black54),))
           ],
         ),
-        SizedBox(height:10),
+        SizedBox(height: 10),
       ]),
     );
   }

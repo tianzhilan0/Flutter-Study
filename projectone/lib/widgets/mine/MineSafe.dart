@@ -21,7 +21,7 @@ class _MineSafeState extends State<MineSafe> {
             padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
             child: Text(
               "我的生活",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: TextStyle(color: Colors.black87,fontSize: 20, fontWeight: FontWeight.w600),
             )),
             SizedBox(height: 20),
         Row(

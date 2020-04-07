@@ -1,3 +1,4 @@
+import 'package:first/widgets/base/LCAppBar.dart';
 import 'package:first/widgets/life/LifeFooter.dart';
 import 'package:first/widgets/life/LifeGoods.dart';
 import 'package:first/widgets/life/LifeHeader.dart';
@@ -11,8 +12,7 @@ class LCLifePage extends StatefulWidget {
 }
 
 class _LCLifePageState extends State<LCLifePage> {
-
-    @override
+  @override
   void initState() {
     super.initState();
 
@@ -22,16 +22,21 @@ class _LCLifePageState extends State<LCLifePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("生活")),
-      body: ListView(
-        children: <Widget>[
-                    LifeHeader(),
-          SizedBox(height: 20),
-          LifeGoods(),
-          SizedBox(height: 20),
-          LifeFooter(),
-        ],
-      )
-    );
+        appBar: LCAppBar(
+          stateColor: Colors.white,
+          appBarAlpha: 1,
+          leftAction: () {},
+        ),
+        body: Container(
+            color: Theme.of(context).backgroundColor,
+            child: ListView(
+              children: <Widget>[
+                LifeHeader(),
+                SizedBox(height: 20),
+                LifeGoods(),
+                SizedBox(height: 20),
+                LifeFooter(),
+              ],
+            )));
   }
 }

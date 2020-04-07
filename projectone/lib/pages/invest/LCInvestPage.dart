@@ -2,6 +2,7 @@ import 'package:first/config/RequestApi.dart';
 import 'package:first/model/InvestModel.dart';
 import 'package:first/tools/webserve/LCMethod.dart';
 import 'package:first/tools/webserve/LCWebRequstManager.dart';
+import 'package:first/widgets/base/LCAppBar.dart';
 import 'package:first/widgets/base/LCLoading.dart';
 import 'package:first/widgets/invest/InvestCurrent.dart';
 import 'package:first/widgets/invest/InvestHeader.dart';
@@ -50,23 +51,29 @@ class _LCInvestPageState extends State<LCInvestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("投资")),
-        body: isRequest
-            ? LCLoading()
-            : ListView(
-                children: <Widget>[
-                  InvestHeader(
-                    model: model,
-                  ),
-                  InvestMargin(imageUrl: model.firstMargin),
-                  InvestCurrent(model: model),
-                  SizedBox(height: 15),
-                  InvestRegularly(imageUrl: model.regularlyInvest),
-                  SizedBox(height: 15),
-                  InvestYouLike(model: model),
-                  InvestMargin(imageUrl: model.secondMargin),
-                  InvestInformation(model: model)
-                ],
-              ));
+        appBar: LCAppBar(
+          stateColor: Colors.white,
+          appBarAlpha: 1,
+          leftAction: () {},
+        ),
+        body: Container(
+            color: Theme.of(context).backgroundColor,
+            child: isRequest
+                ? LCLoading()
+                : ListView(
+                    children: <Widget>[
+                      InvestHeader(
+                        model: model,
+                      ),
+                      InvestMargin(imageUrl: model.firstMargin),
+                      InvestCurrent(model: model),
+                      SizedBox(height: 15),
+                      InvestRegularly(imageUrl: model.regularlyInvest),
+                      SizedBox(height: 15),
+                      InvestYouLike(model: model),
+                      InvestMargin(imageUrl: model.secondMargin),
+                      InvestInformation(model: model)
+                    ],
+                  )));
   }
 }

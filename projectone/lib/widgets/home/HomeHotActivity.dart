@@ -65,6 +65,7 @@ class _HomeHotActivityState extends State<HomeHotActivity> {
     }).toList();
 
     return Container(
+      color: Colors.white,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: EdgeInsets.fromLTRB(20, 30, 0, 20),

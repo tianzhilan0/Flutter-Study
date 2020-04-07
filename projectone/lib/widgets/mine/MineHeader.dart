@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MineHeader extends StatefulWidget {
-  MineHeader({Key key}) : super(key: key);
+class MineHeader extends StatefulWidget implements PreferredSizeWidget {
+  final double contentHeight; //从外部指定高度
+  MineHeader({Key key, this.contentHeight = 170}) : super(key: key);
 
   @override
   _MineHeaderState createState() => _MineHeaderState();
+
+  @override
+  Size get preferredSize => Size.fromHeight(contentHeight);
 }
 
 class _MineHeaderState extends State<MineHeader> {
@@ -12,6 +16,7 @@ class _MineHeaderState extends State<MineHeader> {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.brown,
+        padding: EdgeInsets.only(top: kToolbarHeight),
         child: Column(
           children: <Widget>[
             SizedBox(height: 10),

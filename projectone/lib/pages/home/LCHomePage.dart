@@ -58,29 +58,26 @@ class _LCHomePageState extends State<LCHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isRequest ? LCLoading(): Stack(children: [
-        ListView(controller: _scrollController, children: <Widget>[
-          HomeHeader(model: model),
-          HomeQuickItems(model: model),
-          HomeTips(model: model),
-          HomeSwiper(model: model),
-          HomeHotActivity(model: model),
-          HomeRecommendedActivity(model: model),
-          Container(height: 200, color: Colors.red),
-          Container(height: 200, color: Colors.orange),
-          Container(height: 200, color: Colors.brown),
-          Container(height: 200, color: Colors.blue),
-          Container(height: 200, color: Colors.red),
-          Container(height: 200, color: Colors.orange),
-          Container(height: 200, color: Colors.brown),
-          Container(height: 200, color: Colors.blue)
-        ]),
-        Positioned(
-            child: LCAppBar(
-          appBarAlpha: _appBarAlpha,
-          leftAction: clickLeftAction,
-        )),
-      ]),
+      body: Container(
+        color: Theme.of(context).backgroundColor,
+        child: isRequest
+          ? LCLoading()
+          : Stack(children: [
+              ListView(controller: _scrollController, children: <Widget>[
+                HomeHeader(model: model),
+                HomeQuickItems(model: model),
+                HomeTips(model: model),
+                HomeSwiper(model: model),
+                HomeHotActivity(model: model),
+                HomeRecommendedActivity(model: model),
+              ]),
+              Positioned(
+                  child: LCAppBar(
+                stateColor: Colors.white,
+                appBarAlpha: _appBarAlpha,
+                leftAction: clickLeftAction,
+              )),
+            ])),
     );
   }
 

@@ -1,3 +1,4 @@
+import 'package:first/widgets/base/LCAppBar.dart';
 import 'package:first/widgets/card/CardHui.dart';
 import 'package:first/widgets/card/CardMargin.dart';
 import 'package:first/widgets/card/CardMyCard.dart';
@@ -22,8 +23,14 @@ class _LCCardPageState extends State<LCCardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("信用卡")),
-        body: ListView(
+        appBar: LCAppBar(
+          stateColor: Colors.white,
+          appBarAlpha: 1,
+          leftAction: () {},
+        ),
+        body: Container(
+          color: Theme.of(context).backgroundColor,
+          child:ListView(
           children: <Widget>[
             CardMyCard(),
             CardQuickItem(),
@@ -32,6 +39,7 @@ class _LCCardPageState extends State<LCCardPage> {
             CardHui(),
             CardHui()
           ],
+        )
         ));
   }
 }
