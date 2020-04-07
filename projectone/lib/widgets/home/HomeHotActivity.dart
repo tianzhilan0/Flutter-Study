@@ -22,7 +22,7 @@ class _HomeHotActivityState extends State<HomeHotActivity> {
   Widget build(BuildContext context) {
     List<Widget> items = model.hotActivity.map((item) {
       // return Container();
-      return Padding(
+      return Container(
         padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -40,19 +40,21 @@ class _HomeHotActivityState extends State<HomeHotActivity> {
             children: [
             Text(
               item["title"],
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              style: TextStyle(
+                color: Colors.black87,
+                fontSize: 16, fontWeight: FontWeight.w600),
             ),
             Text(
               item["subtitle"],
-              style: TextStyle(fontSize: 14, color: Colors.black38),
+              style: TextStyle(fontSize: 14, color: Colors.black45),
             ),
           ])),
           Padding(
-              padding: EdgeInsets.only(right:20),
+              padding: EdgeInsets.only(right:10),
               child: FlatButton(
                 child: Text(
                   "立即参加",
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -65,13 +67,16 @@ class _HomeHotActivityState extends State<HomeHotActivity> {
     }).toList();
 
     return Container(
+      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
       color: Colors.white,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
-        padding: EdgeInsets.fromLTRB(20, 30, 0, 20),
+        padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
         child: Text(
           "热门活动",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+          style: TextStyle(
+            color: Colors.black87,
+            fontSize: 20, fontWeight: FontWeight.w600),
         ),
       ),
       Column(

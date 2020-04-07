@@ -19,6 +19,7 @@ dependencies:
   provider: ^4.0.4
   webview_flutter: ^0.3.19+9
   dio: ^3.0.9
+  barcode_scan: ^2.0.1
 
 
 dev_dependencies:

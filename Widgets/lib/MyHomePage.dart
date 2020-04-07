@@ -121,6 +121,8 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "自定义相机", "path": "/camera"},
     {"title": "文件读写", "path": "/writeRead"},
     {"title": "数据库Sqflite", "path": "/sqflite"},
+    {"title": "扫一扫", "path": "/scanQRCode"},
+    
   ];
 
   List<Map> extend = [

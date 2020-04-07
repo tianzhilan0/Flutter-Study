@@ -23,8 +23,8 @@ class _CardMyCardState extends State<CardMyCard> {
     Widget cardItem(index) {
       var item = dataItems[index];
       return Container(
-          margin: EdgeInsets.fromLTRB(20, 20, 20, 40),
-          padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+          margin: EdgeInsets.fromLTRB(20, 20, 20, 35),
+          padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               color: Colors.black54),
@@ -55,9 +55,9 @@ class _CardMyCardState extends State<CardMyCard> {
                     )
                   ]))
             ]),
-            SizedBox(height: 10),
+            // SizedBox(height: 10),
             Padding(
-              padding: EdgeInsets.fromLTRB(15, 15, 15, 20),
+              padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -66,23 +66,23 @@ class _CardMyCardState extends State<CardMyCard> {
                       item["content"],
                       style: TextStyle(fontSize: 24, color: Colors.white),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 15),
                     Text(
                       "下期账单日 ${item["date"]}",
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ]),
                   Container(
-                    width: 100,
+                    width: 80,
                     height: 30,
-                    alignment: Alignment.center,
                     child: OutlineButton(
+                      padding: EdgeInsets.all(0),
                     borderSide: BorderSide(
                         color: Colors.white,
                         width: 1.0,
                         style: BorderStyle.solid),
                     child: Text("账单查询",
-                        style: TextStyle(fontSize: 17, color: Colors.white)),
+                        style: TextStyle(fontSize: 15, color: Colors.white)),
                     onPressed: () {},
                   )
                   )
@@ -99,8 +99,8 @@ class _CardMyCardState extends State<CardMyCard> {
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
               Container(
-                width: 10,
-                height: 30,
+                // width: 10,
+                height: 20,
                 child: VerticalDivider(color: Colors.white),
               ),
               Text(
@@ -129,7 +129,7 @@ class _CardMyCardState extends State<CardMyCard> {
     }
 
     return Container(
-        height: 290,
+        height: 255,
         color: Colors.white,
         child: Stack(children: [
           PageView.builder(

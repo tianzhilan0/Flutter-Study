@@ -8,7 +8,7 @@ class LCAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Color stateColor;
   LCAppBar(
       {Key key,
-      this.contentHeight = 56,
+      this.contentHeight = 44,
       this.appBarAlpha,
       this.leftIcon,
       this.leftAction,
@@ -28,7 +28,7 @@ class _LCAppBarState extends State<LCAppBar> {
     return Column(
       children: <Widget>[
         Container(
-          height: kToolbarHeight,
+          height: 20,
           color: widget.stateColor,
         ),
         Container(

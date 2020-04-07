@@ -30,7 +30,11 @@ class _HomeQuickItemsState extends State<HomeQuickItems> {
         SizedBox(
           height: 3,
         ),
-        Text(item["title"],style: Theme.of(context).textTheme.body1,),
+        Text(item["title"],style: TextStyle(
+            color: Colors.black87,
+            fontSize: 14,
+            fontWeight: FontWeight.w500
+          )),
       ]);
     }).toList();
 

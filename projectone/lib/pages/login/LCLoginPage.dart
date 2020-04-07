@@ -130,7 +130,7 @@ class _LCLoginPageState extends State<LCLoginPage> {
     //新用户注册
     Widget bottomArea() {
       return Container(
-        margin: EdgeInsets.only(right: 20, left: 20, top: 20),
+        margin: EdgeInsets.only(right: 20, left: 20, top: 10),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
@@ -151,7 +151,7 @@ class _LCLoginPageState extends State<LCLoginPage> {
     // 其他方式登录
     Widget marginArea() {
       return Container(
-        margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+        margin: EdgeInsets.only(left: 20, right: 20, top: 10),
         child: Row(children: [
           Expanded(flex: 1, child: Divider()),
           Container(
@@ -165,7 +165,7 @@ class _LCLoginPageState extends State<LCLoginPage> {
 
     Widget otherLoginArea() {
       return Container(
-        margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+        margin: EdgeInsets.only(left: 20, right: 20, top: 10),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           InkWell(
             child: Column(children: [

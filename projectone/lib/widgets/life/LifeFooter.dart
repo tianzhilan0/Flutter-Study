@@ -20,7 +20,9 @@ class _LifeFooterState extends State<LifeFooter> {
           Container(
             padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
             child: Text("服务精选",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 20, fontWeight: FontWeight.w600)),
           ),
           Container(
             padding: EdgeInsets.fromLTRB(0, 0, 0, 20),

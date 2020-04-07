@@ -47,10 +47,11 @@ class _LifeGoodsState extends State<LifeGoods> {
               child: Text(
                 item["title"],
                 style: TextStyle(
+                  color: Colors.black87,
                     fontSize: _currentTab == item["title"] ? 20 : 18,
                     fontWeight: _currentTab == item["title"]
                         ? FontWeight.w500
-                        : FontWeight.w300),
+                        : FontWeight.w400),
               ),
             ),
             onTap: () => _selectTab(
@@ -237,13 +238,15 @@ class _LifeGoodsState extends State<LifeGoods> {
         SizedBox(height: 5),
         Text(
           goods[tabIndex][index]["title"],
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+          style: TextStyle(
+            color: Colors.black87,
+            fontSize: 17, fontWeight: FontWeight.w500),
         ),
-        SizedBox(height: 5),
+        SizedBox(height: 2),
         Text(
           goods[tabIndex][index]["detail"],
           style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w300, color: Colors.black54),
+              fontSize: 15, fontWeight: FontWeight.w400, color: Colors.black54),
         )
       ]));
     }

@@ -28,7 +28,9 @@ class _InvestRegularlyState extends State<InvestRegularly> {
                   padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
                   child: Text(
                     "定期投资",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 20, fontWeight: FontWeight.w600),
                   )),
               Padding(
                   padding: EdgeInsets.fromLTRB(15, 0, 15, 15),

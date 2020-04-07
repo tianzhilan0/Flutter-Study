@@ -19,7 +19,7 @@ class _CardMarginState extends State<CardMargin> {
       Container(
           color: Colors.white,
           height: 100,
-          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+          padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
           child: Row(children: [
             Expanded(
                 flex: 1,
@@ -32,7 +32,11 @@ class _CardMarginState extends State<CardMargin> {
                       height: 50,
                     ),
                     SizedBox(height: 5),
-                    Text("信用币"),
+                    Text("信用币",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black87)),
                   ],
                 )),
             Expanded(
@@ -41,29 +45,48 @@ class _CardMarginState extends State<CardMargin> {
                   children: <Widget>[
                     SizedBox(height: 20),
                     Text.rich(TextSpan(children: [
-                      TextSpan(text: "最高"),
+                      TextSpan(
+                          text: "最高",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black87)),
                       TextSpan(
                           text: "20,000",
                           style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 22,
                               fontWeight: FontWeight.w500,
                               color: Colors.redAccent)),
-                      TextSpan(text: "秒速到账"),
+                      TextSpan(
+                          text: "秒速到账",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black87)),
                     ])),
                     SizedBox(height: 10),
-                    Text("小额信用贷"),
+                    Text("小额信用贷",
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black87)),
                   ],
                 )),
-            SizedBox(width: 20),
+            SizedBox(width: 10),
             Expanded(
                 flex: 1,
                 child: Container(
-                  width: 80,
+                  width: 70,
                   height: 30,
                   child: OutlineButton(
+                    padding: EdgeInsets.all(0),
                     child: Text(
                       "点击进入",
-                      style: TextStyle(color: Colors.greenAccent),
+                      style: TextStyle(
+                        color: Colors.greenAccent,
+                        fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                        ),
                     ),
                     borderSide: BorderSide(
                         color: Colors.greenAccent,
@@ -76,7 +99,7 @@ class _CardMarginState extends State<CardMargin> {
                   ),
                 )),
           ])),
-          SizedBox(height: 20),
+      SizedBox(height: 20),
     ]);
   }
 }

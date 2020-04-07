@@ -32,7 +32,7 @@ class _HomeRecommendedActivityState extends State<HomeRecommendedActivity> {
                     children: [
                       Text(
                         item["rate"],
-                        style: TextStyle(fontSize: 30, color: Colors.redAccent),
+                        style: TextStyle(fontSize: 26, color: Colors.redAccent),
                       ),
                       Text(item["type"],
                           style:
@@ -48,13 +48,15 @@ class _HomeRecommendedActivityState extends State<HomeRecommendedActivity> {
                       item["title"],
                       maxLines: 1,
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                          TextStyle(
+                            color: Colors.black87,
+                            fontSize: 20, fontWeight: FontWeight.w400),
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(item["tip"],
                         style: TextStyle(fontSize: 15, color: Colors.black38)),
                   ])),
-          Icon(Icons.chevron_right)
+          Icon(Icons.chevron_right,size: 36,)
         ],
       );
     }
@@ -80,7 +82,9 @@ class _HomeRecommendedActivityState extends State<HomeRecommendedActivity> {
                 padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
                 child: Text(
                   "为你推荐",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 20, fontWeight: FontWeight.w600),
                 )),
             Column(children: items),
             SizedBox(height: 20),

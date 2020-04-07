@@ -32,11 +32,16 @@ class _CardQuickItemState extends State<CardQuickItem> {
         SizedBox(
           height: 3,
         ),
-        Text(item["title"]),
+        Text(item["title"],
+            style: TextStyle(
+                color: Colors.black87,
+                fontSize: 16,
+                fontWeight: FontWeight.w500)),
       ]);
     }).toList();
 
     return Container(
+        padding: EdgeInsets.only(top: 10),
         color: Colors.white,
         child: GridView.builder(
           physics: NeverScrollableScrollPhysics(), //增加

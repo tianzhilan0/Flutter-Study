@@ -51,7 +51,13 @@ class _InvestHeaderState extends State<InvestHeader> {
                 SizedBox(
                   height: 3,
                 ),
-                Text(items[index]["title"]),
+                Text(
+                  items[index]["title"],
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500),
+                ),
               ]);
             },
           )
@@ -74,7 +80,11 @@ class _InvestHeaderState extends State<InvestHeader> {
               }
               return gripView(newItems);
             },
-            pagination: SwiperPagination()),
+            pagination: SwiperPagination(
+                builder: DotSwiperPaginationBuilder(
+              color: Colors.black38,
+              activeColor: Theme.of(context).primaryColor,
+            ))),
         constraints: BoxConstraints.loose(
             Size(MediaQuery.of(context).size.width, 220.0)));
   }

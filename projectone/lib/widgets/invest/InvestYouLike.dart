@@ -27,17 +27,17 @@ class _InvestYouLikeState extends State<InvestYouLike> {
         items.add(Row(children: [
           SizedBox(width: 20),
           Expanded(
-            flex: 2,
+            flex: 1,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(model.youlike[i]["rate"],
                     style: TextStyle(
-                        fontSize: 34,
+                        fontSize: 24,
                         color: Colors.redAccent,
                         fontWeight: FontWeight.w600)),
                 Text(model.youlike[i]["type"],
-                    style: TextStyle(fontSize: 14, color: Colors.black38))
+                    style: TextStyle(fontSize: 14, color: Colors.black45))
               ],
             ),
           ),
@@ -55,7 +55,7 @@ class _InvestYouLikeState extends State<InvestYouLike> {
                         fontWeight: FontWeight.w500)),
                 SizedBox(height: 10),
                 Text(model.youlike[i]["tip"],
-                    style: TextStyle(fontSize: 14, color: Colors.black38))
+                    style: TextStyle(fontSize: 14, color: Colors.black45))
               ],
             ),
           ),
@@ -78,7 +78,9 @@ class _InvestYouLikeState extends State<InvestYouLike> {
                   padding: EdgeInsets.fromLTRB(20, 20, 0, 20),
                   child: Text(
                     "猜你喜欢",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 20, fontWeight: FontWeight.w600),
                   )),
               Column(children: items()),
               SizedBox(height: 10)

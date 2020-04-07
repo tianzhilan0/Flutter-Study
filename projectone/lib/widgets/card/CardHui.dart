@@ -17,7 +17,10 @@ class _CardHuiState extends State<CardHui> {
               padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
               child: Text(
                 "优惠精选",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
               )),
           Padding(
             padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
@@ -32,24 +35,50 @@ class _CardHuiState extends State<CardHui> {
                   child: Column(children: [
                     Image.network("http://api.oyear.cn/nonghang/item-epay.png",
                         width: 50, height: 50),
-                    Text("精品秒杀"),
-                    Text("限时兑换"),
+                    Text("精品秒杀",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500)),
+                    Text("限时兑换",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500)),
                   ]),
-                ),Container(
+                ),
+                Container(
                   width: MediaQuery.of(context).size.width / 3,
                   child: Column(children: [
                     Image.network("http://api.oyear.cn/nonghang/item-epay.png",
                         width: 50, height: 50),
-                    Text("精品秒杀"),
-                    Text("限时兑换"),
+                    Text("精品秒杀",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500)),
+                    Text("限时兑换",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500)),
                   ]),
-                ),Container(
+                ),
+                Container(
                   width: MediaQuery.of(context).size.width / 3,
                   child: Column(children: [
                     Image.network("http://api.oyear.cn/nonghang/item-epay.png",
                         width: 50, height: 50),
-                    Text("精品秒杀"),
-                    Text("限时兑换"),
+                    Text("精品秒杀",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500)),
+                    Text("限时兑换",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500)),
                   ]),
                 )
               ]))

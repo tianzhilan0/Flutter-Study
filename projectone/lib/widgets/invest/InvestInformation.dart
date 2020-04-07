@@ -36,6 +36,7 @@ class _InvestInformationState extends State<InvestInformation> {
                         child: Text(
                           item["title"],
                           style: TextStyle(
+                            color: Colors.black87,
                             fontSize: 17,
                           ),
                           maxLines: 2,
@@ -46,7 +47,7 @@ class _InvestInformationState extends State<InvestInformation> {
                         padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
                         child: Text(
                           "${item["user"]} | ${item["date"]}",
-                          style: TextStyle(fontSize: 14, color: Colors.black38),
+                          style: TextStyle(fontSize: 14, color: Colors.black54),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -83,7 +84,9 @@ class _InvestInformationState extends State<InvestInformation> {
                     child: Text(
                       "资讯",
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                          TextStyle(
+                            color: Colors.black87,
+                            fontSize: 20, fontWeight: FontWeight.w600),
                     )),
                 Padding(padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
                 child:Icon(Icons.chevron_right,size: 30,),)
