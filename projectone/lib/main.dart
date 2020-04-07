@@ -14,9 +14,9 @@ void main() async {
   // Loading配置
   appLoadingConfig();
 
-  // await LCStorageConfig().init();
-  // String isLogin = await LCStorageConfig().getValue(AppConfig.sp_isLogin);
-String isLogin = '0';
+  await LCStorageConfig().init();
+  String isLogin = await LCStorageConfig().getValue(AppConfig.sp_isLogin);
+// String isLogin = '0';
   runApp(MyApp(isLogin: isLogin,));
 
   /// 自定义报错页面
