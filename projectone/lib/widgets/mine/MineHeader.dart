@@ -92,7 +92,7 @@ class _MineHeaderState extends State<MineHeader> {
                           ]),
                         )),
                     Positioned(
-                      top: 30,
+                      top: 10,
                       right: 0,
                       child: Container(
                           height: 40,
@@ -113,7 +113,7 @@ class _MineHeaderState extends State<MineHeader> {
                             Text(
                               "客户经理",
                               style:
-                                  TextStyle(fontSize: 17, color: Colors.white),
+                                  TextStyle(fontSize: 15, color: Colors.white),
                             ),
                             SizedBox(width: 5),
                           ])),

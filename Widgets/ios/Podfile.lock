@@ -1,4 +1,7 @@
 PODS:
+  - barcode_scan (0.0.1):
+    - Flutter
+    - MTBBarcodeScanner
   - BSGridCollectionViewLayout (1.2.5)
   - BSImagePicker (2.10.3):
     - BSGridCollectionViewLayout (= 1.2.5)
@@ -20,6 +23,7 @@ PODS:
     - Flutter
   - just_audio (0.0.1):
     - Flutter
+  - MTBBarcodeScanner (5.0.11)
   - multi_image_picker (4.6.4):
     - BSImagePicker (~> 2.10.3)
     - Flutter
@@ -44,6 +48,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - barcode_scan (from `.symlinks/plugins/barcode_scan/ios`)
   - camera (from `.symlinks/plugins/camera/ios`)
   - Flutter (from `Flutter`)
   - flutter_plugin_android_lifecycle (from `.symlinks/plugins/flutter_plugin_android_lifecycle/ios`)
@@ -68,8 +73,11 @@ SPEC REPOS:
     - BSImagePicker
     - BSImageView
     - FMDB
+    - MTBBarcodeScanner
 
 EXTERNAL SOURCES:
+  barcode_scan:
+    :path: ".symlinks/plugins/barcode_scan/ios"
   camera:
     :path: ".symlinks/plugins/camera/ios"
   Flutter:
@@ -106,6 +114,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter/ios"
 
 SPEC CHECKSUMS:
+  barcode_scan: 33f586d02270046fc6559135038b34b5754eaa4f
   BSGridCollectionViewLayout: 333dcb457a5a3bdd9212607ab5756553dcfe06cb
   BSImagePicker: 07404254f2fcdaf5a2eb403c0f8c337267ce8738
   BSImageView: a149459433a2687157d034c78e059d30ac7f2544
@@ -117,6 +126,7 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   image_picker: e3eacd46b94694dde7cf2705955cece853aa1a8f
   just_audio: c695d6e7e37f9e96672dd84039d7530e7fd5c205
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   multi_image_picker: 1651732277b2db3b09e83f3be8eb7ea65cf2a933
   path_provider: fb74bd0465e96b594bb3b5088ee4a4e7bb1f2a9d
   path_provider_macos: f760a3c5b04357c380e2fddb6f9db6f3015897e0

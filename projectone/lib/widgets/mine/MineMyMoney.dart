@@ -17,14 +17,17 @@ class _MineMyMoneyState extends State<MineMyMoney> {
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Row(children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
           Expanded(
               flex: 1,
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   // mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 20, top: 0),
+                    Container(
+                      padding: EdgeInsets.only(left: 20, top: 20),
                       child: Text(
                         "我的资产",
                         style: TextStyle(
@@ -33,9 +36,13 @@ class _MineMyMoneyState extends State<MineMyMoney> {
                             fontWeight: FontWeight.w600),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 20, 0, 0),
+                    Container(
+                      width: 80,
+                      height: 30,
+                      margin: EdgeInsets.only(left:40,top: 20),
+                      // padding: EdgeInsets.fromLTRB(40, 20, 0, 0),
                       child: RaisedButton(
+                          padding: EdgeInsets.all(0),
                           color: Colors.orange,
                           shape: RoundedRectangleBorder(
                               side: BorderSide.none,
@@ -44,7 +51,7 @@ class _MineMyMoneyState extends State<MineMyMoney> {
                           child: Text(
                             "立即查看",
                             style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w400,
                                 color: Colors.white),
                           ),
@@ -63,10 +70,13 @@ class _MineMyMoneyState extends State<MineMyMoney> {
             FlatButton.icon(
                 onPressed: () {},
                 icon: Icon(Icons.attach_money),
-                label: Text("我的负债",style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black54),)),
+                label: Text(
+                  "我的负债",
+                  style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black87),
+                )),
             Container(
               // color: Colors.orange,
               width: 1,
@@ -76,10 +86,13 @@ class _MineMyMoneyState extends State<MineMyMoney> {
             FlatButton.icon(
                 onPressed: () {},
                 icon: Icon(Icons.money_off),
-                label: Text("月度账单",style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black54),))
+                label: Text(
+                  "月度账单",
+                  style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black87),
+                ))
           ],
         ),
         SizedBox(height: 10),
