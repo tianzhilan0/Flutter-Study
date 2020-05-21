@@ -200,6 +200,7 @@ class _MyAppState extends State<MyApp> {
                 '/showDatePicker': (_) => LCShowDatePicker(),
                 '/snackBar': (_) => LCSnackBar(),
                 '/steam': (_) => LCStream(),
+                // '/bloc': (_) => LCBloc(),
                 '/inheritedWidget': (_) => LCInheritedWidget(),
                 '/drawer': (_) => LCDrawer(),
                 '/timer': (_) => LCTimer(),

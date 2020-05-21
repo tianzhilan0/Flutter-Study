@@ -98,6 +98,7 @@ class _MyHomePageState extends State<MyHomePage>
     {"title": "showDatePicker", "path": "/showDatePicker"},
     {"title": "SnackBar", "path": "/snackBar"},
     {"title": "Steam", "path": "/steam"},
+    // {"title": "Bloc", "path": "/bloc"},
     {"title": "InheritedWidget", "path": "/inheritedWidget"},
     {"title": "Drawer", "path": "/drawer"},
     {"title": "定时器", "path": "/timer"},

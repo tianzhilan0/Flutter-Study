@@ -86,7 +86,7 @@ class _LCGridViewState extends State<LCGridView> {
                   //Widget Function(BuildContext context, int index)
                   return getItemContainer(datas[index]);
                 })));
-
+    
     return Container(
         child: Scaffold(
             appBar: AppBar(title: Text("GridView")),

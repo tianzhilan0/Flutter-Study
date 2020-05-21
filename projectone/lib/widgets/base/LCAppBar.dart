@@ -120,6 +120,9 @@ class _LCAppBarState extends State<LCAppBar> {
         ),
       ],
     );
+
+
+    
     return Container(
         height: kToolbarHeight + 44,
         width: double.maxFinite,
