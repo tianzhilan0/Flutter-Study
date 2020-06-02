@@ -65,7 +65,7 @@ class _HomeArticleListState extends State<HomeArticleList>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
+print('HomeArticleList  build...');
     return Container(
         child: SmartRefresher(
             controller: _refresh,

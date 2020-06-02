@@ -9,8 +9,6 @@ import 'package:jianyue/pages/select/page/SelectDetailPage.dart';
 final routes = {
   '/newsDeatil':(context,{arguments}) => ArticleDetailPage(arguments: arguments,),
   '/selectDetailPage':(context,{arguments}) => SelectDetailPage(arguments: arguments,),
-  
-
 };
 
 //固定写法

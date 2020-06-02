@@ -98,6 +98,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    print('ArticleDetailPage  build...');
     return Scaffold(
       appBar: AppBar(title: Text("详情")),
       body: isRequest

@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    print('HomePage  build...');
     return Scaffold(
       appBar: PreferredSize(
           child: AppBar(
